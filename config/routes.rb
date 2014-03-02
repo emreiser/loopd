@@ -1,5 +1,7 @@
 Loopd::Application.routes.draw do
-  devise_for :users
 
-  root :to => 'devise/sessions#new'
+  devise_for :users
+  resources :feed
+
+  root :to => 'feeds#index'
 end

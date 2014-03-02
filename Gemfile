@@ -9,6 +9,7 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
 gem 'pg'
 gem 'annotate'
+gem 'turbolinks'
 
 group :development do
   gem 'better_errors'
