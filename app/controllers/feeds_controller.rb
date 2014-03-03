@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
 
   def index
     @user = current_user
+    @feed = Feed.new
     @feeds = @user.feeds
   end
 
