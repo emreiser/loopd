@@ -14,7 +14,9 @@ class FeedsController < ApplicationController
 
   def create
     @user = current_user
-    @feed = current_user.feeds.new(feed_params)
+    @feed = Feed.new(feed_params)
+    @user.feeds.push(@feed)
+    binding.pry
 
     if @feed.save
       flash['notice'] = 'Feed added!'
@@ -32,6 +34,6 @@ class FeedsController < ApplicationController
   private
 
   def feed_params
-    params.require(:feed).permit(:name, :url)
+    params.require(:feed).permit(:url)
   end
 end
