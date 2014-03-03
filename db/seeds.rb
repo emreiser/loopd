@@ -14,4 +14,3 @@ feed1 = Feed.create!(name: 'News', url: 'www.nytimes.com', user_id: 1)
 
 post = Post.create!(title: 'Test post', url: 'www.testy.com', author: 'This guy!', content: 'Something something dark side', pub_date: 'Last tuesday')
 
-jack.posts.push(post)
