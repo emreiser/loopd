@@ -10,7 +10,7 @@ jack = User.create!(email: 'jack7@example.com', password: 'password')
 
 cat1 = Category.create!(name: 'Cool Stuff')
 
-feed1 = Feed.create!(name: 'News', url: 'www.nytimes.com', user_id: 1)
+feed1 = Feed.create!(url: 'www.nytimes.com')
 
 post = Post.create!(title: 'Test post', url: 'www.testy.com', author: 'This guy!', content: 'Something something dark side', pub_date: 'Last tuesday')
 

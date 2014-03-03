@@ -12,9 +12,10 @@ class FeedsController < ApplicationController
 
   def create
     @user = current_user
-    @feed = current_user.feeds.new(feed_params)
+    @feed = Feed.new(feed_params)
 
     if @feed.save
+      @user.feeds.push(@feed)
       flash['notice'] = 'Feed added!'
       redirect_to feeds_path
     else
@@ -30,6 +31,6 @@ class FeedsController < ApplicationController
   private
 
   def feed_params
-    params.require(:feed).permit(:name, :url)
+    params.require(:feed).permit(:url)
   end
 end

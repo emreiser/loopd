@@ -1,8 +1,6 @@
 <h1>Add a new feed</h1>
 
-<%= form_for [@user, @feed] do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+<%= form_for @feed do |f| %>
 	<%= f.label :url %>
 	<%= f.text_field :url %>
 	<%= f.submit value: "Add feed" %>
