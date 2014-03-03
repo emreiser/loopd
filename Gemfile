@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'devise'
 gem 'pg'
 gem 'turbolinks'
+gem 'feedzirra'
 
 group :doc do
   gem 'sdoc', require: false
