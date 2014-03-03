@@ -27,10 +27,16 @@ ActiveRecord::Schema.define(version: 20140302224452) do
     t.integer "category_id", null: false
   end
 
+  add_index "categories_feeds", ["category_id", "feed_id"], name: "index_categories_feeds_on_category_id_and_feed_id", using: :btree
+  add_index "categories_feeds", ["feed_id", "category_id"], name: "index_categories_feeds_on_feed_id_and_category_id", using: :btree
+
   create_table "categories_posts", id: false, force: true do |t|
     t.integer "post_id",     null: false
     t.integer "category_id", null: false
   end
+
+  add_index "categories_posts", ["category_id", "post_id"], name: "index_categories_posts_on_category_id_and_post_id", using: :btree
+  add_index "categories_posts", ["post_id", "category_id"], name: "index_categories_posts_on_post_id_and_category_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.text     "name"
@@ -54,6 +60,9 @@ ActiveRecord::Schema.define(version: 20140302224452) do
     t.integer "post_id", null: false
     t.integer "user_id", null: false
   end
+
+  add_index "posts_users", ["post_id", "user_id"], name: "index_posts_users_on_post_id_and_user_id", using: :btree
+  add_index "posts_users", ["user_id", "post_id"], name: "index_posts_users_on_user_id_and_post_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
