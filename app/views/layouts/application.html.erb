@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Loopd</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Loopd</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header>
+			<div id='user-info'>
+				<% if user_signed_in? %>
+					<%= current_user.email %>
+				<% else %>
+					<%= link_to 'Sign in ', new_user_session_path %>
+					<%= link_to 'Sign up', new_user_registration_path %>
+				<% end %>
+			</div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+		</header>
+		<div id='alerts'>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
 
-<%= yield %>
 
-</body>
+		<%= yield %>
+
+	</body>
 </html>
