@@ -11,5 +11,9 @@ describe Category do
 		it 'is invalid without a name' do
 			expect(Category.create).to_not be_valid
 		end
+
+		it 'is valid when a name is provided' do
+			expect(Category.create(name: 'news')).to be_valid
+		end
 	end
 end
