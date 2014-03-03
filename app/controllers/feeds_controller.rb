@@ -18,7 +18,6 @@ class FeedsController < ApplicationController
 
     if @feed.save
       @user.feeds.push(@feed)
-      binding.pry
       flash['notice'] = 'Feed added!'
       redirect_to user_feeds_path
     else
