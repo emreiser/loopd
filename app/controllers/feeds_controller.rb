@@ -3,6 +3,8 @@ class FeedsController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @feed = Feed.new
   end
 
   def new

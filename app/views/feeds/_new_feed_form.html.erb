@@ -1,0 +1,11 @@
+<h1>Add a new feed</h1>
+<p>Find me in app/views/feeds/new.html.erb</p>
+
+<%= form_for [@user, @feed] do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :url %>
+	<%= f.text_field :url %>
+	<%= f.submit value: "Add feed" %>
+
+<% end %>
