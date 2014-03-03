@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore the code coverage files
+/coverage
+
+# Ignore the .env file
+.env
