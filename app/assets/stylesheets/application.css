@@ -30,13 +30,13 @@
 	background: whitesmoke;
 	padding: 20px;
 	word-wrap: break-word;
-	z-index: -1;
 }
 
 #nav-bar-toggle-button {
 	position: absolute;
 	left: 20px;
 	top: 20px;
+	z-index: 1000;
 }
 
 .side-bar-open {
