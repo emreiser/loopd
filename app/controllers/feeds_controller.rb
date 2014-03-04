@@ -8,6 +8,7 @@ class FeedsController < ApplicationController
     @category = Category.new
     @feeds = @user.feeds
     @posts = @user.all_posts
+    @categories = @user.categories
   end
 
   def new
