@@ -19,4 +19,10 @@ feature 'User Signs In' do
 		click_on 'Add feed'
 		expect(page).to have_content("URL can't be blank")
 	end
+
+	scenario 'Enters invalid feed' do
+		fill_in 'Url', with: 'http://www.google.com'
+		click_on 'Add feed'
+		expect(page).to have_content("Invalid RSS Response")
+	end
 end
