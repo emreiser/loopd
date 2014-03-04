@@ -7,7 +7,8 @@ class FeedsController < ApplicationController
     @feed = Feed.new
     @category = Category.new
     @feeds = @user.feeds
-    @posts = @user.all_posts.sort!{ |x,y| y.pub_date <=> x.pub_date }
+    @posts = @user.all_posts
+    @categories = @user.categories
   end
 
   def new

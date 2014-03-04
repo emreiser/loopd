@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20140304144949) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
 
   create_table "categories_feeds", id: false, force: true do |t|
     t.integer  "feed_id",     null: false
