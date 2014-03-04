@@ -5,9 +5,26 @@ class Feed < ActiveRecord::Base
 
 	validates :url, presence: true
 
-	def update_feed
-		feed = Feedzirra::Feed.fetch_and_parse(self.url)
-		self.add_posts(feed.entries)
+	def get_rss_response
+		Feedzirra::Feed.fetch_and_parse(self.url)
+	end
+
+
+	def self.validate_feed(rss_response)
+		if rss_response == 200
+			false
+		else
+			true
+		end
+	end
+
+	def add_feed(rss_response)
+		self.name = rss_response.title
+		self.save
+	end
+
+	def update_feed(rss_response)
+		self.add_posts(rss_response.entries)
 	end
 
 	def add_posts(entries)

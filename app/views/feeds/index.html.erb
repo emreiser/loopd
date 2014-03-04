@@ -1,14 +1,17 @@
 <h1>Feeds#index</h1>
 
 <div id='add-feed'>
-	<%= render :partial => 'feeds/new_feed_form' %>
+	<%= render partial: 'feeds/new_feed_form' %>
 </div>
 
-<div id='add-feed'>
-	<%= render :partial => 'feeds/new_category_form' %>
+<div id='tag-feed'>
+	<% if params[:feed] %>
+		<%= render partial: 'feeds/categorize_feed_form' %>
+	<% end %>
 </div>
 
-<% @posts.each do |post| %>
-	<p><%= post.title %></p>
-<% end %>
-
+<div id='posts'>
+	<% @posts.each do |post| %>
+		<p><b><%= post.feed.name %></b> | <%= post.title %></p>
+	<% end %>
+</div>
