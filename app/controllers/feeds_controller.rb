@@ -5,6 +5,7 @@ class FeedsController < ApplicationController
   def index
     @user = current_user
     @feed = Feed.new
+    @category = Category.new
     @feeds = @user.feeds
     @posts = @user.all_posts
   end
