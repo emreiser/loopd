@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :posts
 
   def all_posts
-  	self.feeds.map { |f| f.posts }.flatten
+  	self.feeds.includes(:posts).map{ |f| f.posts }.flatten
   end
 end
