@@ -1,0 +1,24 @@
+<h2>Manage feeds</h2>
+<div id='add-category'>
+	<%= render partial: 'feeds/new_category_form' %>
+</div>
+
+<h3>All feeds</h3>
+<ul id='all-feeds'>
+	<% @feeds.each do |feed| %>
+		<li><%= link_to feed.name %></li>
+
+	<% end %>
+</ul>
+
+<h3>Categories</h3>
+<ul id='all-categories'>
+	<% @categories.each do |category| %>
+		<li><%= category.name %></li>
+		<ul>
+		<% category.feeds.each do |feed| %>
+			<li><%= link_to feed.name %></li>
+		<% end %>
+		</ul>
+	<% end %>
+</ul>
