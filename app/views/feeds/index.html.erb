@@ -4,6 +4,10 @@
 	<%= render :partial => 'feeds/new_feed_form' %>
 </div>
 
+<div id='add-feed'>
+	<%= render :partial => 'feeds/new_category_form' %>
+</div>
+
 <% @posts.each do |post| %>
 	<p><%= post.title %></p>
 <% end %>

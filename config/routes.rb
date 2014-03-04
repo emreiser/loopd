@@ -6,6 +6,7 @@ Loopd::Application.routes.draw do
   	resources :posts
   end
   resources :feeds
+  resources :categories
 
   root :to => 'feeds#index'
 end
