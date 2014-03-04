@@ -15,10 +15,11 @@ class FeedsController < ApplicationController
 
   def create
     @user = current_user
-    @feed = Feed.new(feed_params)
+    @feed = Feed.find_or_create_by(url: params[:feed][:url])
 
     if @feed.save
-      @user.feeds.push(@feed)
+      @user.feeds.push(@feed) unless @user.feeds.include? @feed
+      @feed.update_feed
       flash['notice'] = 'Feed added!'
       redirect_to feeds_path
     else

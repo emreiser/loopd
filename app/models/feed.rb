@@ -12,13 +12,16 @@ class Feed < ActiveRecord::Base
 
 	def add_posts(entries)
 		entries.each do |entry|
-			self.posts.create!(
-				title: entry.title,
-				url: entry.url,
-				author: entry.author,
-				summary: entry.summary,
-				content: entry.content,
-				pub_date: entry.published)
+			unless Post.find_by(guid: entry.id).present?
+				self.posts.create!(
+					title: entry.title,
+					url: entry.url,
+					author: entry.author,
+					summary: entry.summary,
+					content: entry.content,
+					pub_date: entry.published,
+					guid: entry.id)
+			end
 		end
 	end
 end
