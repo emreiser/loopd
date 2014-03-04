@@ -5,11 +5,12 @@ feature 'User Signs In' do
 	background do
 		@user = create(:user)
 		visit root_path
+		sign_in_as(@user)
 	end
 
 	scenario 'Add a new feed' do
-		sign_in_as(@user)
-		expect(page).to have_content('jack@jj.com')
+		fill_in 'Url', with: 'http://www.rssmicro.com/?q=Obama'
+		expect(page).to have_content
 	end
 
 end
