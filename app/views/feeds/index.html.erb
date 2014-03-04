@@ -1,7 +1,13 @@
 <h1>Feeds#index</h1>
 
 <div id='add-feed'>
-	<%= render partial: 'new_feed_form' %>
+	<%= render partial: 'feeds/new_feed_form' %>
+</div>
+
+<div id='tag-feed'>
+	<% if params[:feed] %>
+		<%= render partial: 'feeds/categorize_feed_form' %>
+	<% end %>
 </div>
 
 <div id='posts'>

@@ -1,12 +1,12 @@
 <h2>Manage feeds</h2>
 <div id='add-category'>
-	<%= render partial: 'new_category_form' %>
+	<%= render partial: 'feeds/new_category_form' %>
 </div>
 
 <h3>All feeds</h3>
 <ul id='all-feeds'>
 	<% @feeds.each do |feed| %>
-		<li><%= link_to feed.url %></li>
+		<li><%= link_to feed.url, {feed: feed.id} %></li>
 
 	<% end %>
 </ul>
