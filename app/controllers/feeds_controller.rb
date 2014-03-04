@@ -6,6 +6,7 @@ class FeedsController < ApplicationController
     @user = current_user
     @feed = Feed.new
     @feeds = @user.feeds
+    @posts = @user.all_posts
   end
 
   def new
