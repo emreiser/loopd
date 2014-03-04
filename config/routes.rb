@@ -10,5 +10,5 @@ Loopd::Application.routes.draw do
 
   post '/tag_feed' => 'tags#tag_feed', as: 'new_tag'
 
-  root :to => 'feeds#index'
+  root :to => 'home#index'
 end
