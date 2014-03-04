@@ -7,7 +7,6 @@ class Feed < ActiveRecord::Base
 
 	def update_feed
 		feed = Feedzirra::Feed.fetch_and_parse(self.url)
-		binding.pry
 		self.name = feed.title
 		self.save
 		self.add_posts(feed.entries)

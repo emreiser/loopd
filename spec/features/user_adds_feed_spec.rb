@@ -9,8 +9,9 @@ feature 'User Signs In' do
 	end
 
 	scenario 'Add a new feed' do
-		fill_in 'Url', with: 'http://www.rssmicro.com/?q=Obama'
-		expect(page).to have_content
+		fill_in 'Url', with: 'http://www.nytimes.com/services/xml/rss/nyt/Politics.xml'
+		click_on 'Add feed'
+		expect(page).to have_content('NYT > Politics')
 	end
 
 end
