@@ -7,32 +7,35 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
-	<div class='row'>
-		<div class='col'>
-			<%= render partial: 'feeds/side_bar' %>
-		</div>
-	<div class='col'>
-		<header>
-			<div id='user-info'>
-				<% if user_signed_in? %>
-					<%= current_user.email %>
-				<% else %>
-					<%= link_to 'Sign in ', new_user_session_path %>
-					<%= link_to 'Sign up', new_user_registration_path %>
+		<nav id='side-bar'>
+			<div id='nav-bar-toggle-button'><button>Toggle side-bar</button></div>
+			<div id='nav-bar-content' class='hide'>
+				<%= render partial: 'feeds/side_bar' %>
+			</div>
+		</nav>
+	<div id='page'>
+		<div class='container'>
+			<header>
+				<div id='user-info'>
+					<% if user_signed_in? %>
+						<%= current_user.email %>
+					<% else %>
+						<%= link_to 'Sign in ', new_user_session_path %>
+						<%= link_to 'Sign up', new_user_registration_path %>
+					<% end %>
+				</div>
+			</header>
+			<div id='alerts'>
+				<% flash.each do |name, msg| %>
+	  			<% if msg.is_a?(String) %>
+	    			<%= content_tag :div, msg, :class => "flash_#{name}" %>
+	  			<% end %>
 				<% end %>
+
 			</div>
 
-		</header>
-		<div id='alerts'>
-			<% flash.each do |name, msg| %>
-  			<% if msg.is_a?(String) %>
-    			<%= content_tag :div, msg, :class => "flash_#{name}" %>
-  			<% end %>
-			<% end %>
-
+			<%= yield %>
 		</div>
-
-		<%= yield %>
 	</div>
 
 	</body>

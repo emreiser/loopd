@@ -11,3 +11,42 @@
  *= require_self
  *= require_tree .
  */
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#page {
+
+}
+
+#nav-bar-content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 30%;
+	background: whitesmoke;
+	padding: 20px;
+	word-wrap: break-word;
+	z-index: -1;
+}
+
+#nav-bar-toggle-button {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+.side-bar-open {
+	margin-left: 40%
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
