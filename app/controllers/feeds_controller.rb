@@ -16,15 +16,29 @@ class FeedsController < ApplicationController
 
   def create
     @user = current_user
-    @feed = Feed.find_or_create_by(url: params[:feed][:url])
+    @feed = Feed.new
+    @category = Category.new
+    @feeds = @user.feeds
+    @posts = @user.all_posts
+    @categories = @user.categories
 
-    if @feed.save
-      @user.feeds.push(@feed) unless @user.feeds.include? @feed
-      @feed.update_feed
-      flash['notice'] = 'Feed added!'
-      redirect_to feeds_path
+    if params[:feed][:url].present?
+      @feed = Feed.find_or_create_by(url: params[:feed][:url])
+      response = @feed.get_rss_response
+
+      if Feed.validate_feed(response)
+        @user.feeds.push(@feed)
+        @feed.add_feed(response)
+        @feed.update_feed(response)
+        flash['notice'] = 'Feed added!'
+        redirect_to feeds_path
+      else
+        flash.now['alert'] = "Invalid RSS Response"
+        render :index
+      end
+
     else
-      flash.now['alert'] = @feed.errors.full_messages.join(', ')
+      flash.now['alert'] = "URL can't be blank"
       render :index
     end
 
