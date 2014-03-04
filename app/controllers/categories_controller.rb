@@ -5,7 +5,10 @@ class CategoriesController < ApplicationController
 	end
 
 	def create
+		user = current_user
 		@category = Category.new(category_params)
+		user.categories.push(@category) unless user.categories.include? Category.find_by(name: @category.name)
+
 		if @category.save
 			flash['notice'] = 'Category added!'
       redirect_to feeds_path
