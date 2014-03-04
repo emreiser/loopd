@@ -18,6 +18,7 @@
 }
 
 #page {
+	margin-left: 25%
 
 }
 
@@ -37,10 +38,6 @@
 	left: 20px;
 	top: 20px;
 	z-index: 1000;
-}
-
-.side-bar-open {
-	margin-left: 40%
 }
 
 .hide {
