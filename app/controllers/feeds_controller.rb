@@ -6,9 +6,15 @@ class FeedsController < ApplicationController
     @user = current_user
     @feed = Feed.new
     @category = Category.new
-    @feeds = @user.feeds
+
+    @feeds = @user.feeds.sort!{ |x,y| x.name <=> y.name }
     @posts = @user.all_posts
     @categories = @user.categories
+
+    respond_to do |format|
+      format.json { render json: { feeds: @feeds.to_json(include: :categories), posts: @posts, categories: @categories }}
+      format.html
+    end
   end
 
   def new
