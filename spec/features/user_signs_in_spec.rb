@@ -7,7 +7,7 @@ feature 'User Signs In' do
 		visit root_path
 	end
 
-	scenario 'Add a new feed' do
+	scenario 'Signs in successfully' do
 		sign_in_as(@user)
 		expect(page).to have_content('jack@jj.com')
 	end
