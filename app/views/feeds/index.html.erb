@@ -1,10 +1,13 @@
 <h1>Feeds#index</h1>
 
 <div id='add-feed'>
-	<%= render :partial => 'feeds/new_feed_form' %>
+	<%= render partial: 'new_feed_form' %>
 </div>
 
-<% @posts.each do |post| %>
-	<p><%= post.title %></p>
-<% end %>
+<div id='posts'>
+	<% @posts.each do |post| %>
+		<p><%= post.title %></p>
+	<% end %>
+</div>
+
 

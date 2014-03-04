@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140303234628) do
     t.text     "url"
     t.text     "author"
     t.text     "content"
-    t.time     "pub_date"
+    t.text     "pub_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "summary"
