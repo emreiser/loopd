@@ -17,7 +17,9 @@ Loopd.createNewFeed = function(event) {
 	.done(function(data) {
 		console.log("success");
 		var response = data;
-		debugger
+
+		Loopd.addNewFeedPosts(data.posts);
+		Loopd.feeds.push(data.feed);
 	})
 
 	.fail(function() {
@@ -26,3 +28,9 @@ Loopd.createNewFeed = function(event) {
 
 };
 
+Loopd.addNewFeedPosts = function(post_array) {
+
+	for (i = 0; i < post_array.length; i++) {
+		Loopd.posts.push(post_array[i]);
+	}
+};

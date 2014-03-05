@@ -27,7 +27,6 @@ class FeedsController < ApplicationController
     @feeds = @user.feeds
     @posts = @user.all_posts
     @categories = @user.categories
-    binding.pry
 
     if params[:feed][:url].present?
       @feed = Feed.find_or_create_by(url: params[:feed][:url])
