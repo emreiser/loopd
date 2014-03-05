@@ -16,12 +16,8 @@ Loopd.createNewFeed = function(event) {
 	})
 	.done(function(data) {
 		console.log("success");
-		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = data.categories;
-		Loopd.posts = data.posts;
-
-		Loopd.populateSideBar();
-		Loopd.renderAllPosts(Loopd.posts);
+		var response = data;
+		debugger
 	})
 
 	.fail(function() {
