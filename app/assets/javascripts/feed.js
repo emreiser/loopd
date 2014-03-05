@@ -9,7 +9,7 @@ Loopd.Feed = function(feed){
 
 Loopd.Feed.prototype = {
 	renderMe: function(){
-	 return $('<li />', {html: this.name, class: 'feed_' + this.id});
+	 return $('<li />', {html: this.name, "data-feed-id": 'feed_' + this.id});
 	},
 
 	addToAllFeeds: function(){

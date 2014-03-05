@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('#nav-bar-toggle-button').click(Loopd.toggleSideBar);
-
 });
 
 var Loopd = Loopd || {};

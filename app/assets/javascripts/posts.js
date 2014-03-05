@@ -11,11 +11,10 @@ Loopd.renderAllPosts = function(posts){
 };
 
 Loopd.renderFilteredPosts = function(event){
-  var feed_id = event.target.className, id = feed_id.split('feed_')[1];
-  // debugger
+  var feed_id = event.target.attributes['data-feed-id'].value, id = feed_id.split('feed_').pop();
 
-  $('#feeds-section').children('ul').children('li').removeClass('selected');
-  $(event.target).addClass = 'selected';
+  $('#feeds-section ul').children("li").removeClass('selected');
+  $("li[data-feed-id='" + feed_id +"']").addClass('selected');
 
   if(id === 'all'){
     Loopd.renderAllPosts(Loopd.posts);
