@@ -17,6 +17,10 @@
 	margin: 0 auto;
 }
 
+.selected {
+	font-weight: bold;
+}
+
 #page {
 	margin-left: 25%
 }
