@@ -7,14 +7,14 @@ Loopd.Post = function(post) {
 	this.summary = post.summary;
 	this.title = post.title;
 	this.url = post.url;
-	this.created_at = post.created_at
+	this.pub_date = post.pub_date
 }
 
 Loopd.Post.prototype.buildPost = function() {
 	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
 	postHTML += "<h3><a href='" + this.url + "' target='_blank'>" + this.title + "</a></h3>";
 	postHTML += '<div class="post_summary"><p>' + this.summary + '</p></div>';
-	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertPostTime(this.created_at) + '</div>';
+	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertPostTime(this.pub_date) + '</div>';
 	return postHTML;
 }
 

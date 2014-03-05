@@ -16,6 +16,7 @@ Loopd.getData = function(){
 		Loopd.feeds = JSON.parse(data.feeds);
 		Loopd.categories = data.categories;
 		Loopd.posts = data.posts;
+		debugger
 
 		Loopd.populateSideBar();
 		Loopd.renderAllPosts(Loopd.posts);

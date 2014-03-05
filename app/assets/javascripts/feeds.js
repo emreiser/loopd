@@ -17,6 +17,7 @@ Loopd.createNewFeed = function(event) {
 	.done(function(data) {
 		console.log("success");
 		var response = data;
+		debugger
 
 		Loopd.addNewFeedPosts(data.posts);
 		Loopd.feeds.push(data.feed);
