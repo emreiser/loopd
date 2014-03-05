@@ -28,6 +28,8 @@
 	top: 0;
 	bottom: 0;
 	width: 30%;
+	height: 100%;
+	margin-bottom: 0px;
 	background: whitesmoke;
 	padding: 20px;
 	word-wrap: break-word;
