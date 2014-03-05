@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('#nav-bar-toggle-button').click(Loopd.toggleSideBar);
-	Loopd.getFeeds();
 
 });
 
@@ -8,25 +7,6 @@ var Loopd = Loopd || {};
 
 Loopd.toggleSideBar = function(){
 	$('#nav-bar-content').toggleClass('show');
-};
-
-Loopd.getFeeds = function(){
-	$.ajax({
-		url: '/feeds',
-		type: 'GET',
-		dataType: 'json'
-	})
-
-	.done(function(data) {
-		console.log("success");
-		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = data.categories;
-		Loopd.populateSideBar();
-	})
-
-	.fail(function() {
-		console.log("error");
-	})
 };
 
 Loopd.renderFeed = function(feed){
