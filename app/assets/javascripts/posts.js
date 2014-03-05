@@ -11,8 +11,11 @@ Loopd.renderAllPosts = function(posts){
 };
 
 Loopd.renderFilteredPosts = function(event){
-  debugger
   var feed_id = event.target.className.split('feed_')[1];
-  Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, feed_id));
 
+  if(feed_id === 'all'){
+    Loopd.renderAllPosts(Loopd.posts);
+  } else {
+    Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, feed_id));
+  };
 };
