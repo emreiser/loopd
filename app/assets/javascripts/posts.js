@@ -7,13 +7,21 @@ Loopd.Post = function(post) {
 	this.summary = post.summary;
 	this.title = post.title;
 	this.url = post.url;
+	this.created_at = post.created_at
 }
 
 Loopd.Post.prototype.buildPost = function() {
 	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
 	postHTML += '<h2>' + this.title + '</h2>';
 	postHTML += '<div class="post_summary">' + this.summary + '</div>';
-	postHTML += '<div class="post_author">' + this.author + '</div>';
+	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertTime(this.created_at) + '</div>';
 	postHTML += '<a href="' + this.url + '" target="blank">Link to article</a>'
 	return postHTML;
+}
+
+Loopd.convertTime = function(time) {
+	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+	var dateObj = new Date(time);
+	var anotherDate = m_names[dateObj.getMonth()] + " " + dateObj.getDate() + ", " + dateObj.getFullYear() + " at " + dateObj.getHours() + ":" + dateObj.getMinutes();
+	return anotherDate
 }

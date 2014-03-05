@@ -14,6 +14,7 @@ Loopd.getPosts = function() {
 		response = data;
 
 		Loopd.posts = response.posts;
+		Loopd.posts.sort(function(a,b) { return (new Date(b.created_at) - new Date(a.created_at)) } );
 		Loopd.renderAllPosts(response.posts);
 
 		alert('gotcha')
