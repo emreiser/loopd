@@ -9,3 +9,10 @@ Loopd.renderAllPosts = function(posts){
     $("#posts").append(new_post.buildPost());
   });
 };
+
+Loopd.renderFilteredPosts = function(event){
+  debugger
+  var feed_id = event.target.className.split('feed_')[1];
+  Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, feed_id));
+
+};
