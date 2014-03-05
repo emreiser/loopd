@@ -7,7 +7,7 @@ var Loopd = Loopd || {};
 
 Loopd.addNewCategory = function(event){
 	event.preventDefault();
-	var $cat_name = $('#add-category').find('#category_name')
+	var $cat_name = $('#add-category').find('#category_name');
 
 	$.ajax({
 		url: '/categories',
