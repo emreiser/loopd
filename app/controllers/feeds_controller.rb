@@ -50,13 +50,11 @@ class FeedsController < ApplicationController
 
 
       else
-        flash.now['alert'] = "Invalid RSS Response"
-        render :index
+        render json: { message: 'Invalid RSS feed. Please try again.' }
       end
 
     else
-      flash.now['alert'] = "URL can't be blank"
-      render :index
+      render json: { message: "URL can't be blank" }
     end
 
   end

@@ -5,6 +5,7 @@ $(document).ready(function() {
 var Loopd = Loopd || {};
 
 Loopd.createNewFeed = function(event) {
+	$('#messages').empty();
 	var $form = $(event.target),
 			$url = $form.find('input[id="feed_url"]');
 	event.preventDefault();
@@ -17,14 +18,12 @@ Loopd.createNewFeed = function(event) {
 	.done(function(data) {
 		console.log("success");
 		var response = data;
-		debugger
 
+		// Add message data
 		Loopd.addMessage(data.message);
 
-		if (data.posts){
-			Loopd.addNewFeedPosts(data.posts);
-			Loopd.feeds.push(data.feed);
-		};
+		Loopd.addNewFeedPosts(data.posts);
+		Loopd.feeds.push(data.feed);
 
 		Loopd.populateSideBar();
 		Loopd.renderAllPosts(Loopd.posts);
@@ -43,7 +42,7 @@ Loopd.addNewFeedPosts = function(post_array) {
 };
 
 Loopd.addMessage = function(message){
-	$('#messages').empty();
+
 	var message = '<div class="message">' + message + '</div>';
 	$('#messages').append(message);
 }
