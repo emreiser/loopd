@@ -6,10 +6,11 @@ $(document).ready(function() {
 var Loopd = Loopd || {};
 
 Loopd.createNewFeed = function(event) {
+	event.preventDefault();
 	$('#messages').empty();
 	var $form = $(event.target),
 			$url = $form.find('input[id="feed_url"]');
-	event.preventDefault();
+
 
 	$.ajax({
 		url: '/feeds',
