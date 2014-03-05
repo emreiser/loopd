@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
 		if @category.save
 			flash['notice'] = 'Category added!'
-      redirect_to feeds_path
+      render json: @category;
     end
 	end
 
