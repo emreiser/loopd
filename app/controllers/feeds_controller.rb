@@ -7,7 +7,7 @@ class FeedsController < ApplicationController
     @feed = Feed.new
     @category = Category.new
 
-    @feeds = @user.feeds.sort
+    @feeds = @user.feeds
     @posts = @user.all_posts
     @categories = @user.categories
 
@@ -33,19 +33,29 @@ class FeedsController < ApplicationController
       response = @feed.get_rss_response
 
       if Feed.validate_feed(response)
-        @user.feeds.push(@feed)
-        @feed.add_feed(response)
-        @feed.update_feed(response)
-        flash['notice'] = 'Feed added!'
-        redirect_to feeds_path
+        if @user.feeds.include? Feed.find(@feed.id)
+          render json: {message: 'Feed already exists'}
+        else
+          @user.feeds.push(@feed)
+          @feed.add_feed(response)
+          @feed.update_feed(response)
+          respond_to do |format|
+            format.json { render json: { feed: @feed, posts: @feed.posts, message: 'Feed added!' }}
+            format.html
+          end
+        end
+
+        #@feed.update_feed(response)
+        #flash['notice'] = 'Feed added!'
+        #redirect_to feeds_path
+
+
       else
-        flash.now['alert'] = "Invalid RSS Response"
-        render :index
+        render json: { message: 'Invalid RSS feed. Please try again.' }
       end
 
     else
-      flash.now['alert'] = "URL can't be blank"
-      render :index
+      render json: { message: "URL can't be blank" }
     end
 
   end

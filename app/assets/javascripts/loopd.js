@@ -24,6 +24,7 @@ Loopd.getData = function(){
 	.fail(function() {
 		console.log("error");
 	})
+
 };
 
 Loopd.sortByField = function(array, field) {
@@ -40,5 +41,4 @@ Loopd.sortByField = function(array, field) {
   );
 
 };
-
 

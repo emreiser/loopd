@@ -7,7 +7,49 @@ var Loopd = Loopd || {};
 
 Loopd.createNewFeed = function(event) {
 	event.preventDefault();
-	alert('clicked');
+	$('#messages').empty();
+	var $form = $(event.target),
+			$url = $form.find('input[id="feed_url"]');
+
+
+	$.ajax({
+		url: '/feeds',
+		type: 'POST',
+		dataType: 'json',
+		data: {feed: {url: $url.val()} }
+	})
+	.done(function(data) {
+		console.log("success");
+		var response = data;
+
+		// Add message data
+		Loopd.addMessage(data.message);
+
+		if(data.posts) {
+			Loopd.addNewFeedPosts(data.posts);
+			Loopd.feeds.push(data.feed);
+		}
+
+		Loopd.populateSideBar();
+		Loopd.renderAllPosts(Loopd.posts);
+	})
+
+	.fail(function() {
+		console.log("error");
+	});
+
+};
+
+Loopd.addNewFeedPosts = function(post_array) {
+	for (i = 0; i < post_array.length; i++) {
+		Loopd.posts.push(post_array[i]);
+	}
+};
+
+Loopd.addMessage = function(message){
+
+	var message = '<div class="message">' + message + '</div>';
+	$('#messages').append(message);
 };
 
 Loopd.filterByFeed = function(posts_array, feed_id){
@@ -21,3 +63,4 @@ Loopd.filterByFeed = function(posts_array, feed_id){
 	};
 	return filtered_posts;
 };
+
