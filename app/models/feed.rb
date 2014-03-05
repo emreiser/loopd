@@ -11,7 +11,8 @@ class Feed < ActiveRecord::Base
 
 
 	def self.validate_feed(rss_response)
-		if rss_response == 200
+		#if rss_response == 200
+		if rss_response.class.name == "Fixnum"
 			false
 		else
 			true
