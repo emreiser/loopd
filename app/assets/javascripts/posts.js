@@ -9,9 +9,11 @@ $.ajax({
   $.each(data.posts, function(i, post) {
 
     console.log(post);
-    $("#posts").append("<h3><a href='" + post.url + "'>" + post.title + "</a></h3>");
-    $("#posts").append("<p><em>" + post.author + "</em></p>");
-    $("#posts").append("<p>" + post.summary + "</p>");
+    var postData = "<div class='post'><h3><a href='" + post.url + "'>" + post.title + "</a></h3>"
+        postData += "<p><em>" + post.author + "</em></p>"
+        postData += "<p>" + post.summary + "</p></div>"
+
+    $("#posts").append(postData);
 
   });
 

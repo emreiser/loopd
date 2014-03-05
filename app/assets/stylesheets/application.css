@@ -50,3 +50,13 @@
 .show {
 	display: block;
 }
+
+#posts {
+	padding-top: 12px;
+}
+
+#posts .post {
+	border: 2px solid black;
+	margin-top: 4px;
+	padding: 8px;
+}
