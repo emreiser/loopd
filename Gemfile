@@ -38,8 +38,9 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'faker'
   gem 'launchy'
   gem 'chronic'
-  gem 'simplecov', require: false
+  gem 'simplecov', '~> 0.7.1', require: false
 end

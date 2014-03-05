@@ -6,6 +6,9 @@ Loopd::Application.routes.draw do
   	resources :posts
   end
   resources :feeds
+  resources :categories
 
-  root :to => 'feeds#index'
+  post '/tag_feed' => 'tags#tag_feed', as: 'new_tag'
+
+  root :to => 'home#index'
 end

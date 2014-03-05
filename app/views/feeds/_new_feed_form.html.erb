@@ -3,6 +3,6 @@
 <%= form_for @feed, html: {id: "new-feed-form"} do |f| %>
 	<%= f.label :url %>
 	<%= f.text_field :url %>
-	<%= f.submit value: "Add feed" %>
+	<%= f.submit value: "Add feed", id: "new-feed-form" %>
 
 <% end %>

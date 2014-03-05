@@ -11,3 +11,50 @@
  *= require_self
  *= require_tree .
  */
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#page {
+	margin-left: 25%
+}
+
+#nav-bar-content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 30%;
+	height: 100%;
+	margin-bottom: 0px;
+	background: whitesmoke;
+	padding: 20px;
+	word-wrap: break-word;
+}
+
+#nav-bar-toggle-button {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	z-index: 1000;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+#posts {
+	padding-top: 12px;
+}
+
+#posts .post {
+	border: 2px solid black;
+	margin-top: 4px;
+	padding: 8px;
+}

@@ -7,4 +7,6 @@ var Loopd = Loopd || {};
 Loopd.createNewFeed = function(event) {
 	event.preventDefault();
 	alert('clicked');
+
 };
+
