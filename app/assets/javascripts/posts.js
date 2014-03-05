@@ -11,13 +11,16 @@ Loopd.renderAllPosts = function(posts){
 };
 
 Loopd.renderFilteredPosts = function(event){
-  var feed_id = event.target.className.split('feed_')[1];
-  $('#feeds-section').children('ul').children('li').removeClass('selected');
-  event.target.className = 'selected';
+  var feed_id = event.target.attributes['data-feed-id'].value, id = feed_id.split('feed_').pop();
 
-  if(feed_id === 'all'){
+  $('#feeds-section ul').children("li").removeClass('selected');
+  $("li[data-feed-id='" + feed_id +"']").addClass('selected');
+
+  if(id === 'all'){
     Loopd.renderAllPosts(Loopd.posts);
+    Loopd.hideTagForm();
   } else {
-    Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, feed_id));
+    Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, id));
+    Loopd.showTagForm(feed_id);
   };
 };
