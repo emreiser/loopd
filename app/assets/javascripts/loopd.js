@@ -17,8 +17,8 @@ Loopd.getData = function(){
 		Loopd.categories = data.categories;
 		Loopd.posts = data.posts;
 
-
 		Loopd.populateSideBar();
+		Loopd.renderAllPosts(Loopd.posts);
 	})
 
 	.fail(function() {

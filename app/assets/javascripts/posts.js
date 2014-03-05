@@ -1,20 +1,11 @@
-$.ajax({
+var Loopd = Loopd || {};
 
-  type: 'GET',
-  url: '/feeds',
-  dataType: 'json'
+Loopd.renderAllPosts = function(posts){
+  $("#posts").empty();
+  posts.sort(function(a,b) { return (new Date(b.created_at) - new Date(a.created_at)) } );
 
-}).done(function(data) {
-
-  $.each(data.posts, function(i, post) {
-
-    console.log(post);
-    var postData = "<div class='post'><h3><a href='" + post.url + "'>" + post.title + "</a></h3>"
-        postData += "<p><em>" + post.author + "</em></p>"
-        postData += "<p>" + post.summary + "</p></div>"
-
-    $("#posts").append(postData);
-
+  $.each(posts, function(i, post) {
+    var new_post = new Loopd.Post(post);
+    $("#posts").append(new_post.buildPost());
   });
-
-});
+};
