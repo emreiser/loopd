@@ -17,7 +17,7 @@ Loopd.addNewCategory = function(event){
 	})
 	.done(function(data) {
 		$cat_name.val('');
-		Loopd.categories.push(data);
+		if(data.category){ Loopd.categories.push(data.category) };
 		Loopd.populateSideBar();
 
 	})
