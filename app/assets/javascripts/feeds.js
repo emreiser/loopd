@@ -18,6 +18,8 @@ Loopd.createNewFeed = function(event) {
 		console.log("success");
 		var response = data;
 
+		Loopd.addMessage(data.message);
+
 		Loopd.addNewFeedPosts(data.posts);
 		Loopd.feeds.push(data.feed);
 
@@ -36,3 +38,8 @@ Loopd.addNewFeedPosts = function(post_array) {
 		Loopd.posts.push(post_array[i]);
 	}
 };
+
+Loopd.addMessage = function(message){
+	var message = '<div class="message">' + message + '</div>';
+	$('#messages').append(message);
+}
