@@ -44,8 +44,8 @@ Loopd.addAllCategories = function(categories){
 };
 
 Loopd.populateSideBar = function(){
-	$('#all-feeds').empty()
-	$('#all-categories').empty()
-	Loopd.addAllCategories(Loopd.categories);
-	Loopd.renderAllFeeds(Loopd.feeds);
+	$('#all-feeds').empty();
+	$('#all-categories').empty();
+	Loopd.addAllCategories(Loopd.sortByField(Loopd.categories, 'name'));
+	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
 };
