@@ -9,3 +9,15 @@ Loopd.renderAllPosts = function(posts){
     $("#posts").append(new_post.buildPost());
   });
 };
+
+Loopd.renderFilteredPosts = function(event){
+  var feed_id = event.target.className.split('feed_')[1];
+  $('#feeds-section').children('ul').children('li').removeClass('selected');
+  event.target.className = 'selected';
+
+  if(feed_id === 'all'){
+    Loopd.renderAllPosts(Loopd.posts);
+  } else {
+    Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, feed_id));
+  };
+};

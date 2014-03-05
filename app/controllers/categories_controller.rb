@@ -7,11 +7,12 @@ class CategoriesController < ApplicationController
 	def create
 		user = current_user
 		@category = Category.new(category_params)
-		user.categories.push(@category) unless user.categories.include? Category.find_by(name: @category.name)
 
-		if @category.save
-			flash['notice'] = 'Category added!'
-      redirect_to feeds_path
+		if user.categories.include? Category.find_by(name: @category.name)
+			render json: { message: 'Category already exists' }
+    else
+    	user.categories.push(@category)
+      render json: { message: 'Category added', category: @category }
     end
 	end
 

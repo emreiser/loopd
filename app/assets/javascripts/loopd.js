@@ -26,3 +26,19 @@ Loopd.getData = function(){
 	})
 
 };
+
+Loopd.sortByField = function(array, field) {
+  return array.sort(
+    function (a, b) {
+      if (a[field] < b[field]){
+        return -1;
+      } else if (a[field] > b[field]){
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+  );
+
+};
+

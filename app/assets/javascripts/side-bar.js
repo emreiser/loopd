@@ -25,7 +25,7 @@ Loopd.renderAllFeeds = function(feeds){
 	};
 };
 
-Loopd.addCategory = function(category){
+Loopd.renderCategory = function(category){
 	var cat_li, cat_ul;
 	cat_li = $('<li />', {html: category.name});
 	cat_ul = $('<ul />', {id: 'cat_' + category.id});
@@ -34,18 +34,18 @@ Loopd.addCategory = function(category){
 	$('#all-categories').append(cat_li);
 };
 
-Loopd.addAllCategories = function(categories){
+Loopd.renderAllCategories = function(categories){
 	var i = 0, length = categories.length;
 
 	for(;i < length;){
-		Loopd.addCategory(categories[i]);
+		Loopd.renderCategory(categories[i]);
 		i = i + 1;
 	};
 };
 
 Loopd.populateSideBar = function(){
-	$('#all-feeds').empty()
-	$('#all-categories').empty()
-	Loopd.addAllCategories(Loopd.categories);
-	Loopd.renderAllFeeds(Loopd.feeds);
+	$('#all-feeds').empty();
+	$('#all-categories').empty();
+	Loopd.renderAllCategories(Loopd.sortByField(Loopd.categories, 'name'));
+	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
 };
