@@ -4,7 +4,7 @@ Loopd.Feed = function(feed){
 	this.id = feed.id;
 	this.name = feed.name;
 	this.url = feed.url;
-	this.categories = feed.categories;
+	this.categories = feed.categories || [];
 }
 
 Loopd.Feed.prototype = {

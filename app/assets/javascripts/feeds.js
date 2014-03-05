@@ -20,6 +20,9 @@ Loopd.createNewFeed = function(event) {
 
 		Loopd.addNewFeedPosts(data.posts);
 		Loopd.feeds.push(data.feed);
+
+		Loopd.populateSideBar();
+		Loopd.renderAllPosts(Loopd.posts);
 	})
 
 	.fail(function() {
@@ -29,7 +32,6 @@ Loopd.createNewFeed = function(event) {
 };
 
 Loopd.addNewFeedPosts = function(post_array) {
-
 	for (i = 0; i < post_array.length; i++) {
 		Loopd.posts.push(post_array[i]);
 	}
