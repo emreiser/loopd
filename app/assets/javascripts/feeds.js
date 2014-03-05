@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	Loopd.getPosts();
+	$('#new-feed-form').submit(Loopd.createNewFeed(event));
 });
 
 var Loopd = Loopd || {};
@@ -28,7 +29,6 @@ Loopd.getPosts = function() {
 	});
 }
 
-
 Loopd.renderAllPosts = function(posts) {
 	var posts = posts;
 	$('#posts').empty();
@@ -40,3 +40,9 @@ Loopd.renderAllPosts = function(posts) {
 	  	$('#posts').append(post.buildPost());
 	  };
 };
+
+Loopd.createNewFeed = function(event) {
+	alert('clicked');
+	event.preventDefault();
+
+}
