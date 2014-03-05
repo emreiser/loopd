@@ -8,7 +8,6 @@ class FeedsController < ApplicationController
     @category = Category.new
 
     @feeds = @user.feeds.sort!{ |x,y| x.name <=> y.name }
-    #@feeds = @user.feeds.includes(:categories)
     @posts = @user.all_posts
     @categories = @user.categories
 

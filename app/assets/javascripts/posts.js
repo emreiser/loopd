@@ -1,27 +1,47 @@
+$(document).ready(function() {
+	Loopd.getPosts();
+	$('#new-feed-form').submit(Loopd.createNewFeed);
+});
+
 var Loopd = Loopd || {};
 
-Loopd.Post = function(post) {
-	this.id = post.id;
-	this.feed_id = post.feed_id;
-	this.author = post.author;
-	this.summary = post.summary;
-	this.title = post.title;
-	this.url = post.url;
-	this.created_at = post.created_at
+Loopd.getPosts = function() {
+	$.ajax({
+		url: '/feeds',
+		type: 'GET',
+		dataType: 'json'
+	})
+	.done(function(data) {
+		response = data;
+
+		Loopd.posts = response.posts;
+		Loopd.posts.sort(function(a,b) { return (new Date(b.created_at) - new Date(a.created_at)) } );
+		Loopd.renderAllPosts(response.posts);
+
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
 }
 
-Loopd.Post.prototype.buildPost = function() {
-	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
-	postHTML += '<h2>' + this.title + '</h2>';
-	postHTML += '<div class="post_summary">' + this.summary + '</div>';
-	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertTime(this.created_at) + '</div>';
-	postHTML += '<a href="' + this.url + '" target="blank">Link to article</a>'
-	return postHTML;
-}
+Loopd.renderAllPosts = function(posts) {
+	var posts = posts;
+	$('#posts').empty();
 
-Loopd.convertTime = function(time) {
-	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-	var dateObj = new Date(time);
-	var anotherDate = m_names[dateObj.getMonth()] + " " + dateObj.getDate() + ", " + dateObj.getFullYear() + " at " + dateObj.getHours() + ":" + dateObj.getMinutes();
-	return anotherDate
+	for(var i = 0; i < posts.length; i++){
+		// create new object for each post
+	  	var post = new Loopd.Post(posts[i]);
+	  	// append the post to the page
+	  	$('#posts').append(post.buildPost());
+	  };
+};
+
+Loopd.createNewFeed = function(event) {
+	alert('clicked');
+	event.preventDefault();
+
 }
