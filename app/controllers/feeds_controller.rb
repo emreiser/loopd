@@ -38,13 +38,14 @@ class FeedsController < ApplicationController
         else
           @user.feeds.push(@feed)
           @feed.add_feed(response)
+          @feed.update_feed(response)
           respond_to do |format|
             format.json { render json: { feed: @feed, posts: @feed.posts, message: 'Feed added!' }}
             format.html
           end
         end
 
-        @feed.update_feed(response)
+        #@feed.update_feed(response)
         #flash['notice'] = 'Feed added!'
         #redirect_to feeds_path
 

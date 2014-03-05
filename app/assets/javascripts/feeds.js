@@ -22,8 +22,10 @@ Loopd.createNewFeed = function(event) {
 		// Add message data
 		Loopd.addMessage(data.message);
 
-		Loopd.addNewFeedPosts(data.posts);
-		Loopd.feeds.push(data.feed);
+		if(data.posts) {
+			Loopd.addNewFeedPosts(data.posts);
+			Loopd.feeds.push(data.feed);
+		}
 
 		Loopd.populateSideBar();
 		Loopd.renderAllPosts(Loopd.posts);
