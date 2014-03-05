@@ -4,10 +4,8 @@
 	<%= render partial: 'feeds/new_feed_form' %>
 </div>
 
-<div id='tag-feed'>
-	<% if params[:feed] %>
-		<%= render partial: 'feeds/categorize_feed_form' %>
-	<% end %>
+<div id='tag-feed' class='hide'>
+	<%= render partial: 'feeds/categorize_feed_form' %>
 </div>
 
 <div id='posts'>
