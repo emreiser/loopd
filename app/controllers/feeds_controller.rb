@@ -33,16 +33,20 @@ class FeedsController < ApplicationController
       response = @feed.get_rss_response
 
       if Feed.validate_feed(response)
-        @user.feeds.push(@feed)
-        @feed.add_feed(response)
+        unless @user.feeds.include? Feed.find(@feed.id)
+          @user.feeds.push(@feed)
+          @feed.add_feed(response)
+          respond_to do |format|
+            format.json { render json: { feed: @feed, posts: @feed.posts }}
+            format.html
+          end
+        end
+
         @feed.update_feed(response)
         flash['notice'] = 'Feed added!'
         #redirect_to feeds_path
 
-        respond_to do |format|
-          format.json { render json: { feed: @feed, posts: @feed.posts }}
-          format.html
-        end
+
       else
         flash.now['alert'] = "Invalid RSS Response"
         render :index
