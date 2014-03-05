@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 })
 
-var Loopd = {};
+var Loopd = Loopd || {};
 
 Loopd.toggleSideBar = function(){
 	$('#nav-bar-content').toggleClass('show');
