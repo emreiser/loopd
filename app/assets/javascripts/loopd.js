@@ -14,7 +14,7 @@ Loopd.getData = function(){
 	.done(function(data) {
 		console.log("success");
 		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = data.categories;
+		Loopd.categories = JSON.parse(data.categories);
 		Loopd.posts = data.posts;
 
 		Loopd.populateSideBar();

@@ -28,4 +28,22 @@ Loopd.addNewCategory = function(event){
 		console.log("complete");
 	});
 
-}
+};
+
+Loopd.filterByCategory = function(category){
+	var i = 0,
+			feeds = category.feeds,
+			length = feeds.length,
+			filtered_posts = [];
+
+	for(;i < length;){
+		filtered_posts.push(Loopd.filterByFeed(Loopd.posts, feeds[i].id));
+		i = i + 1;
+	}
+
+	if(filtered_posts){
+		return filtered_posts.reduce(function(a, b) {
+    	return a.concat(b);
+		});
+	}
+};

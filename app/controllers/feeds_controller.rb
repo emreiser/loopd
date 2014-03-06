@@ -12,7 +12,7 @@ class FeedsController < ApplicationController
     @categories = @user.categories
 
     respond_to do |format|
-      format.json { render json: { feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories }}
+      format.json { render json: { feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }}
       format.html
     end
   end
