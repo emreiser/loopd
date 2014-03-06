@@ -31,6 +31,8 @@
 
 .delete-button, .delete-cat-button {
 	margin: 0 5px 0 15px;
+	display: inline-block;
+	visibility: hidden;
 }
 
 .inline {
@@ -109,8 +111,8 @@
   padding: 15px;
 }
 
-.show {
-	display: block;
+.display {
+	visibility: visible;
 }
 
 #posts {
@@ -130,6 +132,7 @@
 ul {
   list-style-type: none;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 // This works, but hover isn't ideal and CSS doesn't have an onclick event.

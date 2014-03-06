@@ -11,7 +11,7 @@ Loopd.Category.prototype = {
 		cat_li = $('<li />', {class: 'category', 'data-cat-id': this.id});
 		name = $('<p />', {html: this.name, class: 'inline category', "data-cat-id": this.id});
 		cat_ul = $('<ul />', {id: 'cat_' + this.id});
-		del_button = $('<div />', {class: 'delete-cat-button glyphicon glyphicon-remove-sign inline'});
+		del_button = $('<div />', {class: 'hide delete-cat-button glyphicon glyphicon-remove-sign inline'});
 
 	 cat_li.append(name);
 	 cat_li.append(del_button);
