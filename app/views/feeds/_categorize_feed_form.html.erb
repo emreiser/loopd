@@ -2,7 +2,7 @@
 
 <%= form_for :tag, url: new_tag_path do |f| %>
 	<%= f.text_field :name, placeholder: "Category" %>
-	<%= f.submit value: "Tag feed" %>
+	<%= f.submit value: "Tag feed", id: 'tag-feed-submit' %>
 	<%= f.hidden_field :feed, :value => params[:feed] %>
 
 <% end %>

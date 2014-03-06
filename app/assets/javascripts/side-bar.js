@@ -54,7 +54,11 @@ Loopd.populateSideBar = function(){
 
 	$(function() {
     $( "#tag_name" ).autocomplete({
-      source: availableTags
+      source: availableTags,
+      messages: {
+              noResults: '',
+              results: function() {}
+          }
     });
 	});
 };
