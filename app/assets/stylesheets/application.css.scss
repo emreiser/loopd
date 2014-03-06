@@ -129,18 +129,18 @@
 
 // Autocomplete menu
 .ui-autocomplete {
-    background: whitesmoke;
-    border-radius: 0px;
-    width: 300px;
-    border: 1px solid black;
+  background: whitesmoke;
+  border-radius: 0px;
+  width: 300px;
+  border: 1px solid black;
 }
 
 
 // individual autocomplete items
 .ui-menu .ui-menu-item{
-		margin: 5px 0px;
-    color: black;
-    font-size: 125%;
+	margin: 5px 0px;
+  color: black;
+  font-size: 125%;
 }
 
 #page {
@@ -177,18 +177,31 @@
   transition: left 750ms ease-in-out;
 }
 
-  #nav-bar-content.show {
-    left: 0;
-    -webkit-transition: left 750ms ease-in-out;
-    -moz-transition: left 750ms ease-in-out;
-    -ms-transition: left 750ms ease-in-out;
-    -o-transition: left 750ms ease-in-out;
-    transition: left 750ms ease-in-out;
-  }
+#nav-bar-content.show {
+  left: 0;
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
 
- #nav-bar-content h3 {
-  	margin-top: 80px;
-  }
+#nav-bar-content h3 {
+	margin-top: 80px;
+}
+
+#nav-bar-content.show {
+  left: 0;
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content h3 {
+	margin-top: 80px;
+}
 
 #nav-bar-toggle-button {
   font-family: 'Megrim', cursive;

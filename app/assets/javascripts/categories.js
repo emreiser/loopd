@@ -65,10 +65,7 @@ Loopd.getCategoryById = function(id){
 
 Loopd.renderFilteredCategory = function(event){
   var cat_id = event.target.attributes['data-cat-id'].value;
-
-  $('#all-categories li').children('p').removeClass('selected');
   $(event.target).addClass('selected');
-
   Loopd.renderAllPosts(Loopd.filterByCategory(Loopd.getCategoryById(cat_id)));
 
 };

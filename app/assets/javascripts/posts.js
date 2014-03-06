@@ -21,9 +21,7 @@ Loopd.renderAllPosts = function(posts){
 };
 
 Loopd.renderFilteredPosts = function(event){
-  var id = event.target.attributes['data-feed-id'].value;
-
-  $('#feeds-section ul').children("li").removeClass('selected');
+  var feed_id = event.target.attributes['data-feed-id'].value, id = feed_id.split('feed_').pop();
   $("li[data-feed-id='" + id +"']").addClass('selected');
 
   if(id === 'all'){
