@@ -9,8 +9,8 @@ Loopd.Category.prototype = {
 	renderMe: function(){
 		var cat_li, cat_ul, name, del_button;
 		cat_li = $('<li />', {class: 'category', 'data-cat-id': this.id});
-		name = $('<p />', {html: this.name, class: 'inline category', "data-cat-id": this.id});
-		cat_ul = $('<ul />', {id: 'cat_' + this.id});
+		name = $('<p />', {html: this.name, class: 'inline category', "data-cat-id": this.id, "data-toggle": "collapse", "data-target": '#cat_' + this.id});
+		cat_ul = $('<ul />', {id: 'cat_' + this.id, class: "collapse"});
 		del_button = $('<div />', {class: 'hide delete-cat-button glyphicon glyphicon-remove-sign inline'});
 
 	 cat_li.append(name);
