@@ -60,7 +60,6 @@ Loopd.deleteFeed = function(event){
 		})
 		.done(function(data) {
 			Loopd.refreshArrays(data)
-			debugger
 			Loopd.populateSideBar();
 			Loopd.renderAllPosts(Loopd.posts);
 		})

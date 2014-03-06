@@ -60,9 +60,9 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     user.feeds.delete(@feed)
 
-    @feeds = @user.feeds
-    @posts = @user.all_posts
-    @categories = @user.categories
+    @feeds = user.feeds
+    @posts = user.all_posts
+    @categories = user.categories
 
     render json: { message: 'Feed deleted', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
 
