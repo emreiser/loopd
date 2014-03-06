@@ -60,6 +60,10 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     user.feeds.delete(@feed)
 
+    user.categories.each do |category|
+      category.feeds.delete(@feed)
+    end
+
     @feeds = user.feeds
     @posts = user.all_posts
     @categories = user.categories

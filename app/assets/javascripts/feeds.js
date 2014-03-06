@@ -22,7 +22,6 @@ Loopd.createNewFeed = function(event) {
 		data: {feed: {url: $url.val()} }
 	})
 	.done(function(data) {
-		debugger
 		$url.val('');
 		console.log("success");
 		var response = data;
@@ -46,8 +45,7 @@ Loopd.createNewFeed = function(event) {
 };
 
 Loopd.deleteFeed = function(event){
-	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, feed;
-	feed = Loopd.getFeedById(feed_id);
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value;
 
 	var confirmation = confirm("Are you sure you want to delete this feed?");
 	if (confirmation == true) {
@@ -108,18 +106,42 @@ Loopd.getFeedById = function(id){
 	return feed;
 };
 
-Loopd.removeFeedFromArray = function(feed_id){
-	var i = 0, length = Loopd.feeds.length;
+// Loopd.removeFeedFromArray = function(feed_id){
+// 	var i = 0, length = Loopd.feeds.length;
 
-	for(;i < length;){
-		if(Loopd.feeds[i].id === parseInt(feed_id)){
-			Loopd.feeds.splice(i, 1);
-		};
-		i = i + 1;
-	}
-};
+// 	for(;i < length;){
+// 		if(Loopd.feeds[i].id === parseInt(feed_id)){
+// 			Loopd.feeds.splice(i, 1);
+// 		};
+// 		i = i + 1;
+// 	}
+// };
 
 Loopd.removeFeedFromCategory = function(){
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, category_id;
+	category_id = $(event.target).closest('.category').attr('data-cat-id')
+
+	var confirmation = confirm("Remove feed from this category?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/tag_feed/',
+			type: 'DELETE',
+			dataType: 'json',
+			data: {feed_id: feed_id, cat_id: category_id},
+		})
+		.done(function(data) {
+			Loopd.refreshArrays(data)
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
 
 }
 
