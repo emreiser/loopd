@@ -35,7 +35,7 @@
 
 #nav-bar-content {
 	position: absolute;
-	left: 0;
+	left: -30%;
 	top: 0;
 	bottom: 0;
 	width: 30%;
@@ -44,17 +44,30 @@
 	background: whitesmoke;
 	padding: 20px;
 	word-wrap: break-word;
+	display: block;
+	overflow: hidden;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
 }
+
+  #nav-bar-content.show {
+    left: 0;
+    -webkit-transition: left 750ms ease-in-out;
+    -moz-transition: left 750ms ease-in-out;
+    -ms-transition: left 750ms ease-in-out;
+    -o-transition: left 750ms ease-in-out;
+    transition: left 750ms ease-in-out;
+  }
 
 #nav-bar-toggle-button {
 	position: absolute;
 	left: 20px;
 	top: 20px;
 	z-index: 1000;
-}
-
-.hide {
-	display: none;
 }
 
 .show {
