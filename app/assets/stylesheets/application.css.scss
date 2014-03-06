@@ -18,6 +18,13 @@
 	margin: 0 auto;
 }
 
+#user-info {
+	display: inline-block;
+	position: fixed;
+	top: 0;
+	right: 10px;
+}
+
 .selected {
 	font-weight: bold;
 }
@@ -28,7 +35,7 @@
 
 #nav-bar-content {
 	position: absolute;
-	left: 0;
+	left: -30%;
 	top: 0;
 	bottom: 0;
 	width: 30%;
@@ -37,17 +44,36 @@
 	background: whitesmoke;
 	padding: 20px;
 	word-wrap: break-word;
+	display: block;
+	overflow: hidden;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
 }
+
+  #nav-bar-content.show {
+    left: 0;
+    -webkit-transition: left 750ms ease-in-out;
+    -moz-transition: left 750ms ease-in-out;
+    -ms-transition: left 750ms ease-in-out;
+    -o-transition: left 750ms ease-in-out;
+    transition: left 750ms ease-in-out;
+  }
+  #nav-bar-content h3 {
+  	margin-top: 80px;
+  }
 
 #nav-bar-toggle-button {
+  font-family: 'Megrim', cursive;
+  font-size: 48px;
 	position: absolute;
 	left: 20px;
-	top: 20px;
+	top: 10px;
 	z-index: 1000;
-}
-
-.hide {
-	display: none;
+  cursor: pointer;
 }
 
 .show {
@@ -63,3 +89,28 @@
 	margin-top: 4px;
 	padding: 8px;
 }
+  #posts .post h3 {
+  margin-top: 2px;
+  padding: 1px;
+}
+
+ul {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+// This works, but hover isn't ideal and CSS doesn't have an onclick event.
+// Too tired to add JS right now, maybe in the morning.
+
+// #all-feeds {
+//   height: 0px;
+//   overflow: hidden;
+//   -webkit-transition: all 0.5s ease-in-out;
+//   -moz-transition: all 0.5s ease-in-out;
+//   -o-transition: all 0.5s ease-in-out;
+//   transition: all 0.5s ease-in-out;
+// }
+
+//   #feeds-section:hover ul {
+//       height: 100px;
+//   }
