@@ -45,11 +45,6 @@ class FeedsController < ApplicationController
           end
         end
 
-        #@feed.update_feed(response)
-        #flash['notice'] = 'Feed added!'
-        #redirect_to feeds_path
-
-
       else
         render json: { message: 'Invalid RSS feed. Please try again.' }
       end
@@ -61,8 +56,9 @@ class FeedsController < ApplicationController
   end
 
   def destroy
+    user = current_user
     @feed = Feed.find(params[:id])
-    @feed.destroy
+    user.feeds.delete(@feed)
 
     render json: { message: 'Feed deleted', feed: @feed }
 
