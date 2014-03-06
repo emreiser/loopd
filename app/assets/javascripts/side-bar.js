@@ -26,7 +26,7 @@ Loopd.renderAllFeeds = function(feeds){
 
 Loopd.renderCategory = function(category){
 	var cat_li, cat_ul;
-	cat_li = $('<li />', {html: category.name});
+	cat_li = $('<li />', {html: category.name, class: 'category', 'data-cat-id': category.id});
 	cat_ul = $('<ul />', {id: 'cat_' + category.id});
 	cat_li.append(cat_ul);
 

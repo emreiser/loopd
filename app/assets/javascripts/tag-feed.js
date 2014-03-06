@@ -28,7 +28,7 @@ Loopd.tagFeed = function(event){
 	.done(function(data) {
 		$cat_name.val('');
 		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = data.categories;
+		Loopd.categories = JSON.parse(data.categories);
 
 		Loopd.populateSideBar();
 	})

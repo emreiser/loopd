@@ -14,7 +14,7 @@ Loopd.getData = function(){
 	.done(function(data) {
 		console.log("success");
 		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = data.categories;
+		Loopd.categories = JSON.parse(data.categories);
 		Loopd.posts = data.posts;
 
 		Loopd.populateSideBar();
@@ -40,5 +40,16 @@ Loopd.sortByField = function(array, field) {
     }
   );
 
+};
+
+Loopd.applyFilter = function(event){
+	if($(event.target).hasClass('feed')){
+		Loopd.renderFilteredPosts(event);
+	} else if($(event.target).hasClass('category')){
+		Loopd.renderFilteredCategory(event);
+	} else {
+		Loopd.renderAllPosts(Loopd.posts);
+		$('#feeds-section ul').children("li").removeClass('selected');
+	}
 };
 

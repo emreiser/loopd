@@ -11,7 +11,7 @@ class TagsController < ApplicationController
 			render json: { message: 'Already tagged' }
     else
     	@category.feeds.push(@feed)
-      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), categories: @categories }
+      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), categories: @categories.to_json(:include => :feeds) }
     end
 	end
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#add-category').submit(Loopd.addNewCategory);
-
+	$('#feeds-section').click(Loopd.applyFilter);
 });
 
 var Loopd = Loopd || {};
@@ -30,7 +30,48 @@ Loopd.addNewCategory = function(event){
 		console.log("complete");
 	});
 
+};
+
+Loopd.filterByCategory = function(category){
+	var i = 0,
+			feeds = category.feeds,
+			length = feeds.length,
+			filtered_posts = [];
+	for(;i < length;){
+		filtered_posts.push(Loopd.filterByFeed(Loopd.posts, feeds[i].id));
+		i = i + 1;
+	}
+
+	if(filtered_posts.length > 0){
+		return filtered_posts.reduce(function(a, b) {
+    	return a.concat(b);
+		});
+	} else {
+		return [];
+	}
+};
+
+Loopd.getCategoryById = function(id){
+	var i = 0, length = Loopd.categories.length, category;
+
+	for(;i < length;){
+		if(Loopd.categories[i].id === parseInt(id)){
+			category = Loopd.categories[i];
+		};
+		i = i + 1;
+	}
+	return category;
 }
+
+Loopd.renderFilteredCategory = function(event){
+  var cat_id = event.target.attributes['data-cat-id'].value;
+
+  $('#feeds-section ul').children("li").removeClass('selected');
+  $(event.target).addClass('selected');
+
+  Loopd.renderAllPosts(Loopd.filterByCategory(Loopd.getCategoryById(cat_id)));
+
+};
 
 Loopd.addCategoryMessage = function(message) {
 	var message = '<div class="message">' + message + '</div>';
