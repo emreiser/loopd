@@ -96,6 +96,7 @@
 
 ul {
   list-style-type: none;
+  cursor: pointer;
 }
 
 // This works, but hover isn't ideal and CSS doesn't have an onclick event.
