@@ -35,9 +35,11 @@ Loopd.renderCategory = function(category){
 
 Loopd.renderAllCategories = function(categories){
 	var i = 0, length = categories.length;
+	availableTags = [];
 
 	for(;i < length;){
 		Loopd.renderCategory(categories[i]);
+		availableTags.push(categories[i].name)
 		i = i + 1;
 	};
 };
@@ -47,6 +49,13 @@ Loopd.populateSideBar = function(){
 	$('#all-categories').empty();
 	Loopd.renderAllCategories(Loopd.sortByField(Loopd.categories, 'name'));
 	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
+
 	$('#all-feeds .delete-button').click(Loopd.deleteFeed);
 	$('#all-categories .delete-button').click(Loopd.removeFeedFromCategory);
+
+	$(function() {
+    $( "#tag_name" ).autocomplete({
+      source: availableTags
+    });
+	});
 };
