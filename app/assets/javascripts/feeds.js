@@ -19,6 +19,7 @@ Loopd.createNewFeed = function(event) {
 		data: {feed: {url: $url.val()} }
 	})
 	.done(function(data) {
+		debugger
 		$url.val('');
 		console.log("success");
 		var response = data;

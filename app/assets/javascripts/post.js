@@ -8,15 +8,19 @@ Loopd.Post = function(post) {
 	this.title = post.title;
 	this.url = post.url;
 	this.pub_date = post.pub_date
+	this.content = post.content || [];
 }
 
 Loopd.Post.prototype.buildPost = function() {
 	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
 	postHTML += "<h3><a href='" + this.url + "' target='_blank'>" + this.title + "</a></h3>";
 	postHTML += '<div class="post_summary"><p>' + this.summary + '</p></div>';
+	if(!($.isEmptyObject(this.content))) {
+		postHTML += '<div class="post_content">' + this.content + '</div>';
+	};
 	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertPostTime(this.pub_date) + '</div>';
 	return postHTML;
-}
+};
 
 Loopd.convertPostTime = function(time) {
 	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
