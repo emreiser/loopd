@@ -11,6 +11,7 @@ gem 'devise'
 gem 'pg'
 gem 'turbolinks'
 gem 'feedzirra'
+gem 'jquery-ui-rails'
 
 group :doc do
   gem 'sdoc', require: false

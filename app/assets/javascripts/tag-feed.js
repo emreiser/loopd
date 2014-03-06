@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#tag-feed').submit(Loopd.tagFeed);
+
 });
 
 
@@ -39,3 +40,5 @@ Loopd.tagFeed = function(event){
 	});
 
 };
+
+

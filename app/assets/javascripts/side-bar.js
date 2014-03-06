@@ -35,9 +35,11 @@ Loopd.renderCategory = function(category){
 
 Loopd.renderAllCategories = function(categories){
 	var i = 0, length = categories.length;
+	availableTags = [];
 
 	for(;i < length;){
 		Loopd.renderCategory(categories[i]);
+		availableTags.push(categories[i].name)
 		i = i + 1;
 	};
 };
@@ -47,4 +49,9 @@ Loopd.populateSideBar = function(){
 	$('#all-categories').empty();
 	Loopd.renderAllCategories(Loopd.sortByField(Loopd.categories, 'name'));
 	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
+	$(function() {
+    $( "#tag_name" ).autocomplete({
+      source: availableTags
+    });
+	});
 };
