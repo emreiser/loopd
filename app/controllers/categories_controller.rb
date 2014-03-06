@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
     @category = Feed.find(params[:id])
     user.categories.delete(@category)
 
-    render json: { message: 'Category deleted', category: @category }
+    render json: { message: 'Category deleted', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
 
   end
 

@@ -73,6 +73,33 @@ Loopd.renderFilteredCategory = function(event){
 
 };
 
+Loopd.deleteCategory = function(){
+	var cat_id = event.target.parentElement.attributes['cat-feed-id'].value;
+
+	var confirmation = confirm("Are you sure you want to delete this category?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/categories/' + cat_id,
+			type: 'DELETE',
+			dataType: 'json',
+			data: {id: cat_id},
+		})
+		.done(function(data) {
+			Loopd.refreshArrays(data)
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
+}
+
 Loopd.addCategoryMessage = function(message) {
 	var message = '<div class="message">' + message + '</div>';
 	$('#category-message').append(message);
