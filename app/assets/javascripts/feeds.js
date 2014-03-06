@@ -4,6 +4,10 @@ $(document).ready(function() {
 
 var Loopd = Loopd || {};
 
+Loopd.alert = function(){
+	alert('clicked');
+};
+
 Loopd.createNewFeed = function(event) {
 	event.preventDefault();
 	$('#messages').empty();
@@ -40,6 +44,33 @@ Loopd.createNewFeed = function(event) {
 
 };
 
+Loopd.deleteFeed = function(event){
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value;
+
+	var confirmation = confirm("Are you sure you want to delete this feed?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/feeds/' + feed_id,
+			type: 'DELETE',
+			dataType: 'json',
+			data: {id: feed_id},
+		})
+		.done(function(data) {
+			Loopd.refreshArrays(data)
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
+}
+
 Loopd.addNewFeedPosts = function(post_array) {
 	for (i = 0; i < post_array.length; i++) {
 		Loopd.posts.push(post_array[i]);
@@ -62,4 +93,55 @@ Loopd.filterByFeed = function(posts_array, feed_id){
 	};
 	return filtered_posts;
 };
+
+Loopd.getFeedById = function(id){
+	var i = 0, length = Loopd.feeds.length, feed;
+
+	for(;i < length;){
+		if(Loopd.feeds[i].id === parseInt(id)){
+			feed = Loopd.feeds[i];
+		};
+		i = i + 1;
+	}
+	return feed;
+};
+
+// Loopd.removeFeedFromArray = function(feed_id){
+// 	var i = 0, length = Loopd.feeds.length;
+
+// 	for(;i < length;){
+// 		if(Loopd.feeds[i].id === parseInt(feed_id)){
+// 			Loopd.feeds.splice(i, 1);
+// 		};
+// 		i = i + 1;
+// 	}
+// };
+
+Loopd.removeFeedFromCategory = function(){
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, category_id;
+	category_id = $(event.target).closest('.category').attr('data-cat-id')
+
+	var confirmation = confirm("Remove feed from this category?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/tag_feed/',
+			type: 'DELETE',
+			dataType: 'json',
+			data: {feed_id: feed_id, cat_id: category_id},
+		})
+		.done(function(data) {
+			Loopd.refreshArrays(data)
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
+}
 

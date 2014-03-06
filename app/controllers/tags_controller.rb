@@ -11,8 +11,22 @@ class TagsController < ApplicationController
 			render json: { message: 'Already tagged' }
     else
     	@category.feeds.push(@feed)
-      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), categories: @categories.to_json(:include => :feeds) }
+      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
     end
+	end
+
+	def destroy_tag
+		user = current_user
+    @category = Category.find(params[:cat_id])
+    feed = Feed.find(params[:feed_id])
+    @category.feeds.delete(feed)
+
+    @feeds = user.feeds
+    @posts = user.all_posts
+    @categories = user.categories
+
+    render json: { message: 'Feed deleted', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
+
 	end
 
 end

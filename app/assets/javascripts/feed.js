@@ -9,7 +9,12 @@ Loopd.Feed = function(feed){
 
 Loopd.Feed.prototype = {
 	renderMe: function(){
-	 return $('<li />', {html: this.name, class: 'feed', "data-feed-id": 'feed_' + this.id});
+	 var li = $('<li />', {class: 'feed', "data-feed-id": this.id});
+	 var name = $('<p />', {html: this.name, class: 'inline feed', "data-feed-id": this.id});
+	 var del_button = $('<div />', {class: 'hide delete-button glyphicon glyphicon-remove-sign inline'});
+	 li.append(name)
+	 li.append(del_button)
+	 return li;
 	},
 
 	addToAllFeeds: function(){

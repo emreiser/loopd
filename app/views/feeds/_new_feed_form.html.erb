@@ -1,10 +1,5 @@
-<h1>Add a new feed</h1>
-
 <%= form_for @feed, html: {id: "new-feed-form"} do |f| %>
-	<%= f.label :url %>
-	<%= f.text_field :url %>
-	<%= f.submit value: "Add feed" %>
-
+	<%= f.text_field :url, placeholder: "Add an RSS feed", autofocus: true %>
 <% end %>
 
 <div id="messages"></div>
