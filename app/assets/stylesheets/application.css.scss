@@ -22,6 +22,76 @@
 	font-weight: bold;
 }
 
+.delete-button, .delete-cat-button {
+	margin: 0 5px 0 15px;
+	display: inline-block;
+	visibility: hidden;
+	margin-bottom: -2px;
+}
+
+.inline {
+	display: inline-block;
+}
+
+#add-feed {
+	margin-top: 50px;
+	width: 100%;
+	border-bottom: 1px solid black;
+	text-align: right;
+
+}
+
+#add-feed input {
+	border: none;
+	width: 100%;
+	font-size: 150%;
+	text-align: right;
+	padding: 10px 0 10px 10px;
+	color: gray;
+}
+
+#add-feed input:focus {
+	outline: none;
+}
+
+// Tag form input field
+#tag_name {
+	width: 80%;
+	background: whitesmoke;
+	font-size: 125%;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+#tag-feed input:focus {
+	outline: none;
+}
+
+#tag-feed-submit {
+	background: #3498db;
+	border: none;
+	padding: 8px;
+	border-radius: 3px;
+	color: white;
+}
+
+// Autocomplete menu
+.ui-autocomplete {
+  background: whitesmoke;
+  border-radius: 0px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+
+// individual autocomplete items
+.ui-menu .ui-menu-item{
+	margin: 5px 0px;
+  color: black;
+  font-size: 125%;
+}
+
 #page {
 	margin-left: 25%
 }
@@ -37,6 +107,19 @@
 	background: whitesmoke;
 	padding: 20px;
 	word-wrap: break-word;
+}
+
+#nav-bar-content.show {
+  left: 0;
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content h3 {
+	margin-top: 80px;
 }
 
 #nav-bar-toggle-button {
