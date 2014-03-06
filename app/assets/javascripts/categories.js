@@ -74,7 +74,7 @@ Loopd.renderFilteredCategory = function(event){
 };
 
 Loopd.deleteCategory = function(){
-	var cat_id = event.target.parentElement.attributes['cat-feed-id'].value;
+	var cat_id = event.target.parentElement.attributes['data-cat-id'].value;
 
 	var confirmation = confirm("Are you sure you want to delete this category?");
 	if (confirmation == true) {

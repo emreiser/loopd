@@ -25,12 +25,8 @@ Loopd.renderAllFeeds = function(feeds){
 };
 
 Loopd.renderCategory = function(category){
-	var cat_li, cat_ul;
-	cat_li = $('<li />', {html: category.name, class: 'category', 'data-cat-id': category.id});
-	cat_ul = $('<ul />', {id: 'cat_' + category.id});
-	cat_li.append(cat_ul);
-
-	$('#all-categories').append(cat_li);
+	var category = new Loopd.Category(category);
+	$('#all-categories').append(category.renderMe());
 };
 
 Loopd.renderAllCategories = function(categories){
@@ -52,6 +48,7 @@ Loopd.populateSideBar = function(){
 
 	$('#all-feeds .delete-button').click(Loopd.deleteFeed);
 	$('#all-categories .delete-button').click(Loopd.removeFeedFromCategory);
+	$('#all-categories .delete-cat-button').click(Loopd.deleteCategory);
 
 	$(function() {
     $( "#tag_name" ).autocomplete({
