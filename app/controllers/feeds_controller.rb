@@ -45,11 +45,6 @@ class FeedsController < ApplicationController
           end
         end
 
-        #@feed.update_feed(response)
-        #flash['notice'] = 'Feed added!'
-        #redirect_to feeds_path
-
-
       else
         render json: { message: 'Invalid RSS feed. Please try again.' }
       end
@@ -60,7 +55,21 @@ class FeedsController < ApplicationController
 
   end
 
-  def show
+  def destroy
+    user = current_user
+    @feed = Feed.find(params[:id])
+    user.feeds.delete(@feed)
+
+    user.categories.each do |category|
+      category.feeds.delete(@feed)
+    end
+
+    @feeds = user.feeds
+    @posts = user.all_posts
+    @categories = user.categories
+
+    render json: { message: 'Feed deleted', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
+
   end
 
   private

@@ -2,7 +2,7 @@
 
 <%= form_for @category do |f| %>
 	<%= f.text_field :name, placeholder: "Feed Category" %>
-	<%= f.submit value: "Add" %>
+	<%= f.submit value: "Add", id: "new-category-submit" %>
 
 <% end %>
 
