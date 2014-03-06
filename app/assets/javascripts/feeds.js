@@ -59,7 +59,8 @@ Loopd.deleteFeed = function(event){
 			data: {id: feed_id},
 		})
 		.done(function(data) {
-			Loopd.removeFeedFromArray(data.feed.id);
+			Loopd.refreshArrays(data)
+			debugger
 			Loopd.populateSideBar();
 			Loopd.renderAllPosts(Loopd.posts);
 		})
@@ -118,4 +119,8 @@ Loopd.removeFeedFromArray = function(feed_id){
 		i = i + 1;
 	}
 };
+
+Loopd.removeFeedFromCategory = function(){
+
+}
 

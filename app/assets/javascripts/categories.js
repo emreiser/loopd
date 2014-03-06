@@ -61,7 +61,7 @@ Loopd.getCategoryById = function(id){
 		i = i + 1;
 	}
 	return category;
-}
+};
 
 Loopd.renderFilteredCategory = function(event){
   var cat_id = event.target.attributes['data-cat-id'].value;

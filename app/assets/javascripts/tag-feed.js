@@ -18,7 +18,8 @@ Loopd.hideTagForm = function(){
 Loopd.tagFeed = function(event){
 	event.preventDefault();
 	var $cat_name = $('#tag-feed').find('#tag_name'), feed_id;
-	feed_id = $('#tag-feed').attributes['data-feed-id'].value;
+	feed_id = $('#tag-feed').attr('data-feed-id');
+	debugger
 
 	$.ajax({
 		url: '/tag_feed',
