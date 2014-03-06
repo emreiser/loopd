@@ -9,15 +9,13 @@ Loopd.Post = function(post) {
 	this.url = post.url;
 	this.pub_date = post.pub_date
 	this.content = post.content || [];
-	// this.truncated = this.summary.substring(0, 400);
-	// this.validated = this.truncated.replace(/<img[^>]*>/g,"");
 }
 
 Loopd.Post.prototype.buildPost = function() {
 	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
 	postHTML += "<h3><a href='" + this.url + "' target='_blank'>" + this.title + "</a></h3>";
 	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertPostTime(this.pub_date) + '</div>';
-	postHTML += '<div class="post_summary"><p>' + this.summary + '</p></div>';
+	postHTML += '<div class="post_summary"><p>' + this.summary + ' [...]</p></div>';
 	if(!($.isEmptyObject(this.content))) {
 		postHTML += '<div id="post_toggle_' + this.id + '">Click to toggle post</div>';
 		postHTML += '<div class="post_content" id="post_content_' + this.id + '">' + this.content + '</div>';
