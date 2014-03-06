@@ -6,7 +6,8 @@ $(document).ready(function(){
 var Loopd = Loopd || {};
 
 Loopd.showTagForm = function(feed_id){
-	$('#tag-feed').addClass('show ' + feed_id);
+	$('#tag-feed').addClass('show');
+	$('#tag-feed').attr('data-feed-id', feed_id);
 };
 
 Loopd.hideTagForm = function(){
@@ -16,7 +17,7 @@ Loopd.hideTagForm = function(){
 Loopd.tagFeed = function(event){
 	event.preventDefault();
 	var $cat_name = $('#tag-feed').find('#tag_name'), feed_id;
-	feed_id = $('#tag-feed').attr('class').split(' ').pop().split('feed_').pop();
+	feed_id = $('#tag-feed').attributes['data-feed-id'].value;
 
 	$.ajax({
 		url: '/tag_feed',

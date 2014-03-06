@@ -4,6 +4,10 @@ $(document).ready(function() {
 
 var Loopd = Loopd || {};
 
+Loopd.alert = function(){
+	alert('clicked');
+};
+
 Loopd.createNewFeed = function(event) {
 	event.preventDefault();
 	$('#messages').empty();
@@ -40,6 +44,12 @@ Loopd.createNewFeed = function(event) {
 
 };
 
+Loopd.deleteFeed = function(event){
+	debugger
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, id = feed_id.split('feed_').pop();
+	// to be completed
+}
+
 Loopd.addNewFeedPosts = function(post_array) {
 	for (i = 0; i < post_array.length; i++) {
 		Loopd.posts.push(post_array[i]);
@@ -61,5 +71,17 @@ Loopd.filterByFeed = function(posts_array, feed_id){
 		i = i + 1;
 	};
 	return filtered_posts;
+};
+
+Loopd.getFeedById = function(id){
+	var i = 0, length = Loopd.feeds.length, feed;
+
+	for(;i < length;){
+		if(Loopd.feeds[i].id === parseInt(id)){
+			feed = Loopd.feeds[i];
+		};
+		i = i + 1;
+	}
+	return feed;
 };
 

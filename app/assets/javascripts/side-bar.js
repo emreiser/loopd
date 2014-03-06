@@ -47,4 +47,6 @@ Loopd.populateSideBar = function(){
 	$('#all-categories').empty();
 	Loopd.renderAllCategories(Loopd.sortByField(Loopd.categories, 'name'));
 	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
+	$('#all-feeds .delete-button').click(Loopd.deleteFeed);
+	$('#all-categories .delete-button').click(Loopd.removeFeedFromCategory);
 };
