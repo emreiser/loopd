@@ -45,11 +45,42 @@
 	text-align: right;
 	padding: 10px;
 	color: gray;
-
 }
 
 #add-feed input:focus {
 	outline: none;
+}
+
+// Tag form input field
+#tag_name {
+	width: 80%;
+	background: whitesmoke;
+	font-size: 125%;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+
+#tag-feed input:focus {
+	outline: none;
+}
+
+#tag-feed input {
+
+}
+
+#tag-feed-submit {
+	background: #3498db;
+	border: none;
+	padding: 8px;
+	border-radius: 3px;
+	color: white;
+}
+
+.ui-autocomplete {
+    background: whitesmoke;
+    border-radius: 0px;
+    width: 300px;
 }
 
 #page {
@@ -139,3 +170,7 @@ ul {
 //   #feeds-section:hover ul {
 //       height: 100px;
 //   }
+
+
+
+
