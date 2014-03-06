@@ -51,7 +51,11 @@ Loopd.populateSideBar = function(){
 	Loopd.renderAllFeeds(Loopd.sortByField(Loopd.feeds, 'name'));
 	$(function() {
     $( "#tag_name" ).autocomplete({
-      source: availableTags
+      source: availableTags,
+      messages: {
+              noResults: '',
+              results: function() {}
+          }
     });
 	});
 };
