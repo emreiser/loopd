@@ -7,6 +7,14 @@ Loopd.renderAllPosts = function(posts){
   $.each(posts, function(i, post) {
     var new_post = new Loopd.Post(post);
     $("#posts").append(new_post.buildPost());
+
+    // If the post has content, allow user to toggle show
+    if ($('#post_content_' + new_post.id).length > 0) {
+      $('#post_toggle_' + new_post.id).click(function() {
+        $('#post_content_' + new_post.id).toggle()
+      });
+      $('#post_content_' + new_post.id).hide()
+    }
   });
 };
 

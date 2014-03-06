@@ -16,7 +16,8 @@ Loopd.Post.prototype.buildPost = function() {
 	postHTML += "<h3><a href='" + this.url + "' target='_blank'>" + this.title + "</a></h3>";
 	postHTML += '<div class="post_summary"><p>' + this.summary + '</p></div>';
 	if(!($.isEmptyObject(this.content))) {
-		postHTML += '<div class="post_content">' + this.content + '</div>';
+		postHTML += '<div id="post_toggle_' + this.id + '">Click to toggle post</div>';
+		postHTML += '<div class="post_content" id="post_content_' + this.id + '">' + this.content + '</div>';
 	};
 	postHTML += '<div class="post_author">' + this.author + ' | Published: ' + Loopd.convertPostTime(this.pub_date) + '</div>';
 	return postHTML;
