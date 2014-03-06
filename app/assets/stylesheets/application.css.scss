@@ -45,7 +45,6 @@
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
-	// padding: 0px;
 
 }
 
@@ -74,10 +73,6 @@
 
 #tag-feed input:focus {
 	outline: none;
-}
-
-#tag-feed input {
-
 }
 
 #tag-feed-submit {
@@ -138,7 +133,8 @@
     -o-transition: left 750ms ease-in-out;
     transition: left 750ms ease-in-out;
   }
-  #nav-bar-content h3 {
+
+ #nav-bar-content h3 {
   	margin-top: 80px;
   }
 
@@ -163,13 +159,30 @@
 }
 
 #posts .post {
-	border: 2px solid black;
-	margin-top: 4px;
-	padding: 8px;
+	margin-bottom: 40px;
+	padding: 0;
+	background: whitesmoke;
+	border-left: 10px solid #FBDB0C;
 }
-  #posts .post h3 {
-  margin-top: 2px;
-  padding: 1px;
+
+.post-author, .post_content, .post-summary {
+	padding: 10px 20px 10px 20px;
+}
+
+#posts .post h3 {
+  margin: 0;
+  padding: 20px 20px 20px 20px;
+  background: white;
+}
+
+a {
+	text-decoration: none;
+	color: gray;
+}
+
+a:hover {
+	text-decoration: none;
+	color: whitesmoke;
 }
 
 ul {
@@ -178,23 +191,3 @@ ul {
   margin: 0;
   padding-left: 20px;
 }
-
-// This works, but hover isn't ideal and CSS doesn't have an onclick event.
-// Too tired to add JS right now, maybe in the morning.
-
-// #all-feeds {
-//   height: 0px;
-//   overflow: hidden;
-//   -webkit-transition: all 0.5s ease-in-out;
-//   -moz-transition: all 0.5s ease-in-out;
-//   -o-transition: all 0.5s ease-in-out;
-//   transition: all 0.5s ease-in-out;
-// }
-
-//   #feeds-section:hover ul {
-//       height: 100px;
-//   }
-
-
-
-
