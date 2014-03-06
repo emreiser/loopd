@@ -85,10 +85,20 @@
 	color: white;
 }
 
+// Autocomplete menu
 .ui-autocomplete {
     background: whitesmoke;
     border-radius: 0px;
     width: 300px;
+    border: 1px solid black;
+}
+
+
+// individual autocomplete items
+.ui-menu .ui-menu-item{
+		margin: 5px 0px;
+    color: black;
+    font-size: 125%;
 }
 
 #page {
@@ -108,6 +118,7 @@
 	word-wrap: break-word;
 	display: block;
 	overflow: hidden;
+	box-shadow: 2px 0px 10px 1px #ccc;
 
   -webkit-transition: left 750ms ease-in-out;
   -moz-transition: left 750ms ease-in-out;
