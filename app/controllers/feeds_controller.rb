@@ -60,7 +60,12 @@ class FeedsController < ApplicationController
 
   end
 
-  def show
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+
+    render json: { message: 'Feed deleted', feed: @feed }
+
   end
 
   private

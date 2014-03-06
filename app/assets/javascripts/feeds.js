@@ -45,9 +45,31 @@ Loopd.createNewFeed = function(event) {
 };
 
 Loopd.deleteFeed = function(event){
-	debugger
-	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, id = feed_id.split('feed_').pop();
-	// to be completed
+	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, feed;
+	feed = Loopd.getFeedById(feed_id);
+
+	var confirmation = confirm("Are you sure you want to delete this feed?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/feeds/' + feed_id,
+			type: 'DELETE',
+			dataType: 'json',
+			data: {id: feed_id},
+		})
+		.done(function(data) {
+			Loopd.removeFeedFromArray(data.feed.id);
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
 }
 
 Loopd.addNewFeedPosts = function(post_array) {
@@ -83,5 +105,16 @@ Loopd.getFeedById = function(id){
 		i = i + 1;
 	}
 	return feed;
+};
+
+Loopd.removeFeedFromArray = function(feed_id){
+	var i = 0, length = Loopd.feeds.length;
+
+	for(;i < length;){
+		if(Loopd.feeds[i].id === parseInt(feed_id)){
+			Loopd.feeds.splice(i, 1);
+		};
+		i = i + 1;
+	}
 };
 
