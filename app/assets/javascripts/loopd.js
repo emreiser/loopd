@@ -37,17 +37,18 @@ Loopd.sortByField = function(array, field) {
       }
     }
   );
-
 };
 
 Loopd.applyFilter = function(event){
+	$('#feeds-section').find("p").removeClass('selected');
+	$('#feeds-section').find("li").removeClass('selected');
+
 	if($(event.target).hasClass('feed')){
 		Loopd.renderFilteredPosts(event);
 	} else if($(event.target).hasClass('category')){
 		Loopd.renderFilteredCategory(event);
 	} else {
 		Loopd.renderAllPosts(Loopd.posts);
-		$('#feeds-section ul').children("li").removeClass('selected');
 	}
 };
 
@@ -55,5 +56,9 @@ Loopd.refreshArrays = function(data){
 	Loopd.feeds = JSON.parse(data.feeds);
 	Loopd.categories = JSON.parse(data.categories);
 	Loopd.posts = data.posts;
-}
+};
+
+Loopd.toggleDelete = function(event){
+	$(event.currentTarget).children('.delete-button, .delete-cat-button').toggleClass('display hide');
+};
 
