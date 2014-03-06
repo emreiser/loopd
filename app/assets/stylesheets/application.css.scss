@@ -29,12 +29,20 @@
 	font-weight: bold;
 }
 
+.delete-button, .delete-cat-button {
+	margin: 0 5px 0 15px;
+}
+
+.inline {
+	display: inline-block;
+}
+
 #add-feed {
 	margin-top: 50px;
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
-	padding: 10px;
+	// padding: 0px;
 
 }
 
@@ -43,7 +51,7 @@
 	width: 100%;
 	font-size: 150%;
 	text-align: right;
-	padding: 10px;
+	padding: 10px 0 10px 10px;
 	color: gray;
 }
 

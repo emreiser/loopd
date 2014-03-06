@@ -13,9 +13,7 @@ Loopd.getData = function(){
 
 	.done(function(data) {
 		console.log("success");
-		Loopd.feeds = JSON.parse(data.feeds);
-		Loopd.categories = JSON.parse(data.categories);
-		Loopd.posts = data.posts;
+		Loopd.refreshArrays(data)
 
 		Loopd.populateSideBar();
 		Loopd.renderAllPosts(Loopd.posts);
@@ -52,4 +50,10 @@ Loopd.applyFilter = function(event){
 		$('#feeds-section ul').children("li").removeClass('selected');
 	}
 };
+
+Loopd.refreshArrays = function(data){
+	Loopd.feeds = JSON.parse(data.feeds);
+	Loopd.categories = JSON.parse(data.categories);
+	Loopd.posts = data.posts;
+}
 

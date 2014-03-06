@@ -61,7 +61,7 @@ Loopd.getCategoryById = function(id){
 		i = i + 1;
 	}
 	return category;
-}
+};
 
 Loopd.renderFilteredCategory = function(event){
   var cat_id = event.target.attributes['data-cat-id'].value;
@@ -72,6 +72,33 @@ Loopd.renderFilteredCategory = function(event){
   Loopd.renderAllPosts(Loopd.filterByCategory(Loopd.getCategoryById(cat_id)));
 
 };
+
+Loopd.deleteCategory = function(){
+	var cat_id = event.target.parentElement.attributes['data-cat-id'].value;
+
+	var confirmation = confirm("Are you sure you want to delete this category?");
+	if (confirmation == true) {
+
+		$.ajax({
+			url: '/categories/' + cat_id,
+			type: 'DELETE',
+			dataType: 'json',
+			data: {id: cat_id},
+		})
+		.done(function(data) {
+			Loopd.refreshArrays(data)
+			Loopd.populateSideBar();
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+
+}
 
 Loopd.addCategoryMessage = function(message) {
 	var message = '<div class="message">' + message + '</div>';
