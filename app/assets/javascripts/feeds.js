@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('#new-feed-form').submit(Loopd.createNewFeed);
-	$('#feeds-section').click(Loopd.renderFilteredPosts);
 });
 
 var Loopd = Loopd || {};

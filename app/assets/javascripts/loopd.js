@@ -42,3 +42,14 @@ Loopd.sortByField = function(array, field) {
 
 };
 
+Loopd.applyFilter = function(event){
+	if($(event.target).hasClass('feed')){
+		Loopd.renderFilteredPosts(event);
+	} else if($(event.target).hasClass('category')){
+		Loopd.renderFilteredCategory(event);
+	} else {
+		Loopd.renderAllPosts(Loopd.posts);
+		$('#feeds-section ul').children("li").removeClass('selected');
+	}
+};
+
