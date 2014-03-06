@@ -49,6 +49,8 @@ Loopd.populateSideBar = function(){
 	$('#all-feeds .delete-button').click(Loopd.deleteFeed);
 	$('#all-categories .delete-button').click(Loopd.removeFeedFromCategory);
 	$('#all-categories .delete-cat-button').click(Loopd.deleteCategory);
+	$('#feeds-section .delete-button, .delete-cat-button').closest('li').mouseenter(Loopd.toggleDelete);
+	$('#feeds-section .delete-button, .delete-cat-button').closest('li').mouseleave(Loopd.toggleDelete);
 
 	$(function() {
     $( "#tag_name" ).autocomplete({

@@ -55,5 +55,9 @@ Loopd.refreshArrays = function(data){
 	Loopd.feeds = JSON.parse(data.feeds);
 	Loopd.categories = JSON.parse(data.categories);
 	Loopd.posts = data.posts;
-}
+};
+
+Loopd.toggleDelete = function(event){
+	$(event.currentTarget).children('.delete-button, .delete-cat-button').toggleClass('display hide');
+};
 
