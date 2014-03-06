@@ -7,6 +7,7 @@ var Loopd = Loopd || {};
 
 Loopd.addNewCategory = function(event){
 	event.preventDefault();
+	$('#category-message').empty();
 	var $cat_name = $('#add-category').find('#category_name');
 
 	$.ajax({
@@ -16,6 +17,7 @@ Loopd.addNewCategory = function(event){
 		data: {category: { name: $cat_name.val()}},
 	})
 	.done(function(data) {
+		Loopd.addCategoryMessage(data.message)
 		$cat_name.val('');
 		if(data.category){ Loopd.categories.push(data.category) };
 		Loopd.populateSideBar();
@@ -70,3 +72,8 @@ Loopd.renderFilteredCategory = function(event){
   Loopd.renderAllPosts(Loopd.filterByCategory(Loopd.getCategoryById(cat_id)));
 
 };
+
+Loopd.addCategoryMessage = function(message) {
+	var message = '<div class="message">' + message + '</div>';
+	$('#category-message').append(message);
+}
