@@ -20,6 +20,15 @@ class CategoriesController < ApplicationController
 	  end
 	end
 
+	def destroy
+    user = current_user
+    @category = Feed.find(params[:id])
+    user.categories.delete(@category)
+
+    render json: { message: 'Category deleted', category: @category }
+
+  end
+
 	private
 
 	def category_params
