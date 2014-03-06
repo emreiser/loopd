@@ -24,7 +24,7 @@ Loopd.createNewFeed = function(event) {
 		var response = data;
 
 		// Add message data
-		Loopd.addMessage(data.message);
+		Loopd.addFeedMessage(data.message);
 
 		if(data.posts) {
 			Loopd.addNewFeedPosts(data.posts);
@@ -47,8 +47,7 @@ Loopd.addNewFeedPosts = function(post_array) {
 	}
 };
 
-Loopd.addMessage = function(message){
-
+Loopd.addFeedMessage = function(message){
 	var message = '<div class="message">' + message + '</div>';
 	$('#messages').append(message);
 };
