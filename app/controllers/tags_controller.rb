@@ -7,12 +7,17 @@ class TagsController < ApplicationController
 		@categories = user.categories
 		@feeds = user.feeds
 
-		if @category.feeds.include? Feed.find(@feed.id)
-			render json: { message: 'Already tagged' }
-    else
-    	@category.feeds.push(@feed)
-      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
-    end
+		if @category.name.present?
+			if @category.feeds.include? Feed.find(@feed.id)
+				render json: { message: 'Already tagged' }
+	    else
+	    	@category.feeds.push(@feed)
+	      render json: { message: 'Feed tagged', feeds: @feeds.to_json(:include => :categories), posts: @posts, categories: @categories.to_json(:include => :feeds) }
+	    end
+	  else
+	  	render json: { message: "Tag can't be blank" }
+	  end
+
 	end
 
 	def destroy_tag

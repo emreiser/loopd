@@ -7,6 +7,8 @@ class FeedsController < ApplicationController
     @feed = Feed.new
     @category = Category.new
 
+    @user.update_all_feeds
+
     @feeds = @user.feeds
     @posts = @user.all_posts
     @categories = @user.categories
@@ -25,7 +27,6 @@ class FeedsController < ApplicationController
     @feed = Feed.new
     @category = Category.new
     @feeds = @user.feeds
-    @posts = @user.all_posts
     @categories = @user.categories
 
     if params[:feed][:url].present?
@@ -39,6 +40,7 @@ class FeedsController < ApplicationController
           @user.feeds.push(@feed)
           @feed.add_feed(response)
           @feed.update_feed(response)
+          @posts = @user.all_posts
           respond_to do |format|
             format.json { render json: { feed: @feed, posts: @feed.posts, message: 'Feed added!' }}
             format.html
