@@ -7,7 +7,16 @@
 	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 	</head>
-	<body>
+	<body id='index'>
+		<header>
+			<div id='user-info'>
+				<% if user_signed_in? %>
+					<%= current_user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+				<% else %>
+					<%= link_to 'Sign in ', new_user_session_path %> | <%= link_to 'Create an Account', new_user_registration_path %>
+				<% end %>
+			</div>
+		</header>
 		<% if user_signed_in? %>
 			<nav id='side-bar'>
 				<div id='nav-bar-toggle-button'>Loopd</div>
@@ -19,15 +28,6 @@
 		<% end %>
 	<div id='page'>
 		<div class='container'>
-			<header>
-				<div id='user-info'>
-					<% if user_signed_in? %>
-						<%= current_user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-					<% else %>
-						<%= link_to 'Sign in ', new_user_session_path %> | <%= link_to 'Create an Account', new_user_registration_path %>
-					<% end %>
-				</div>
-			</header>
 			<div id='alerts'>
 				<% flash.each do |name, msg| %>
 	  			<% if msg.is_a?(String) %>
