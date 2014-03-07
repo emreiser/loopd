@@ -98,9 +98,8 @@
 
 #user-info {
 	display: inline-block;
-	position: fixed;
 	top: 0;
-	right: 10px;
+	float:right;
 }
 
 .selected {
@@ -403,6 +402,7 @@ input {
 }
 .devise_forms input {
   border: none;
+  color: black;
 }
 
 a {
