@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 		# end
     @category = Category.new
     feed = Feed.where(url: 'http://rss.cnn.com/rss/cnn_topstories.rss')
+
     @posts = feed[0].posts.limit(10)
 
 
