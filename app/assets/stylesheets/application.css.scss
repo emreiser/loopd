@@ -367,6 +367,37 @@ input {
   color: gray;
 }
 
+.devise-class {
+  background: image-url('tranquilsky.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 900px;
+  -webkit-box-shadow: 0px 5px 13px 0px rgba(49, 50, 50, 0.82);
+  -moz-box-shadow:    0px 5px 13px 0px rgba(49, 50, 50, 0.82);
+  box-shadow:         0px 5px 13px 0px rgba(49, 50, 50, 0.82);
+}
+
+.devise_container {
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+}
+.devise_container h2 {
+  font-size: 40px;
+}
+.devise_forms {
+  margin-top: 20px;
+}
+.devise_forms input[type="submit"] {
+  background: gray;
+}
+.devise_forms input {
+  border: none;
+}
+
 a {
 	text-decoration: none;
 	color: gray;
