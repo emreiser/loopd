@@ -12,4 +12,6 @@ Loopd::Application.routes.draw do
   delete '/tag_feed' => 'tags#destroy_tag', as: 'delete_tag'
 
   root :to => 'home#index'
+
+  get '/home' => 'home#index'
 end
