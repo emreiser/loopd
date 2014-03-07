@@ -14,7 +14,7 @@
  */
 
 .container {
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 }
 
@@ -78,21 +78,24 @@
 }
 
 #page {
-	padding-left: 25%
+	padding-left: 30%
 }
 
 #index {
-	background: whitesmoke;
+	background: white;
 }
 
 header {
-	height: 180px;
-	background: white;
+	height: 150px;
+	background: image-url('tranquilsky.jpg') no-repeat 0% 50%;
 }
 
 #sidebar-scroll {
 	overflow-y:scroll;
+}
 
+#add-category {
+	margin-top: 80px;
 }
 
 #feeds-section {
@@ -106,7 +109,7 @@ header {
 	width: 30%;
 	height: 100%;
 	margin-bottom: -10px;
-	background: whitesmoke;
+	background: #f2f2f2;
 	padding: 80px 20px 0 50px;
 	word-wrap: break-word;
 	display: block;
@@ -129,10 +132,6 @@ header {
   transition: left 750ms ease-in-out;
 }
 
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
 #nav-bar-content.show {
   left: 0;
   -webkit-transition: left 750ms ease-in-out;
@@ -142,20 +141,16 @@ header {
   transition: left 750ms ease-in-out;
 }
 
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
 #nav-bar-toggle-button {
   font-family: 'Megrim', cursive;
-  font-size: 48px;
-  // background: whitesmoke;
+  font-size: 60px;
 	position: fixed;
-	left: 35px;
-	top: 30px;
+	width: 30%;
+	left: 40px;
+	top: 25px;
 	z-index: 1000;
   cursor: pointer;
-  padding: 15px;
+  // padding: 15px;
 }
 
 .selected {
@@ -245,8 +240,8 @@ header {
 #posts .post {
 	margin-bottom: 40px;
 	padding: 0;
-	background: whitesmoke;
-	border-left: 10px solid #FBDB0C;
+	background: #f2f2f2;
+	// border-left: 10px solid #FBDB0C;
 }
 
 .post-author, .post_content, .post-summary {
@@ -254,19 +249,21 @@ header {
 }
 
 #posts .post h3 {
+	font-size: 120%;
   margin: 0;
   padding: 20px 20px 20px 20px;
   background: white;
+  color: black;
 }
 
-a {
+h3 a {
 	text-decoration: none;
-	color: gray;
+	color: black;
 }
 
-a:hover {
+h3 a:hover {
 	text-decoration: none;
-	color: whitesmoke;
+	color: black;
 }
 
 ul {
