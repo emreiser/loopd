@@ -80,6 +80,8 @@ Loopd.addNewFeedPosts = function(post_array) {
 Loopd.addFeedMessage = function(message){
 	var message = '<div class="message">' + message + '</div>';
 	$('#messages').append(message);
+	$('#messages').animate({ opacity: 100 })
+	$('#messages').delay(2000).animate({ opacity: 0 })
 };
 
 Loopd.filterByFeed = function(posts_array, feed_id){
@@ -105,17 +107,6 @@ Loopd.getFeedById = function(id){
 	}
 	return feed;
 };
-
-// Loopd.removeFeedFromArray = function(feed_id){
-// 	var i = 0, length = Loopd.feeds.length;
-
-// 	for(;i < length;){
-// 		if(Loopd.feeds[i].id === parseInt(feed_id)){
-// 			Loopd.feeds.splice(i, 1);
-// 		};
-// 		i = i + 1;
-// 	}
-// };
 
 Loopd.removeFeedFromCategory = function(){
 	var feed_id = event.target.parentElement.attributes['data-feed-id'].value, category_id;

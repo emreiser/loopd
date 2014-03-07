@@ -100,4 +100,6 @@ Loopd.deleteCategory = function(){
 Loopd.addCategoryMessage = function(message) {
 	var message = '<div class="message">' + message + '</div>';
 	$('#category-message').append(message);
+	$('#category-message').animate({ opacity: 100 })
+	$('#category-message').delay(2000).animate({ opacity: 0 })
 }
