@@ -1,7 +1,3 @@
-$(document).ready(function(){
-	Loopd.getHomePosts();
-});
-
 var Loopd = Loopd || {};
 
 Loopd.getHomePosts = function(){
