@@ -6,11 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-jack = User.create!(email: 'jack7@example.com', password: 'password')
-
-cat1 = Category.create!(name: 'Cool Stuff')
-
-feed1 = Feed.create!(url: 'www.nytimes.com')
-
-post = Post.create!(title: 'Test post', url: 'www.testy.com', author: 'This guy!', content: 'Something something dark side', pub_date: 'Last tuesday')
+test = User.create!(email: 'jack7@example.com', password: 'password')
+feed1 = Feed.create!(url: 'http://rss.cnn.com/rss/cnn_topstories.rss')
+response = feed1.get_rss_response
+feed1.add_feed(response)
+feed1.update_feed(response)
 
