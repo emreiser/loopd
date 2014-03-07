@@ -1,8 +1,8 @@
 <h3>Get Organized.</h3>
 
 <%= form_for @category do |f| %>
-	<%= f.text_field :name, placeholder: "Feed Category" %>
-	<%= f.submit value: "Add", id: "new-category-submit" %>
+	<%= f.text_field :name, placeholder: "Feed Category", class: 'form-control' %>
+	<%= f.submit value: "Add", id: "new-category-submit", class: 'form-control' %>
 
 <% end %>
 

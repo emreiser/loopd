@@ -100,6 +100,18 @@
 	font-weight: bold;
 }
 
+.feed, .category {
+	color: white;
+}
+
+#add-category {
+	margin-bottom: 30px;
+}
+
+#add-category h3 {
+	color: #FBDB0C;
+}
+
 .delete-button, .delete-cat-button {
 	margin: 0 5px 0 15px;
 	display: inline-block;
@@ -116,6 +128,12 @@
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
+
+}
+
+input {
+	margin-bottom: 5px;
+	background: white;
 
 }
 
@@ -174,7 +192,7 @@
 
 #page {
 	padding-left: 25%;
-	background: whitesmoke;
+	background: white;
 }
 
 
@@ -187,7 +205,7 @@
 	height: 100%;
 	margin-bottom: -10px;
 	background: #333332;
-	padding: 80px 20px 0 50px;
+	padding: 80px 50px 0 50px;
 	word-wrap: break-word;
 	display: block;
 	overflow: hidden;
@@ -329,7 +347,7 @@
 }
 
 #feed_url {
-	background: whitesmoke;
+	background: white;
 }
 
 .post-author, .post_content, .post-summary {
