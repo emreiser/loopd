@@ -49,26 +49,33 @@
 #home-description{
 	background: whitesmoke;
 	width: 100%;
-	height: 300px;
+	height: 180px;
 
 }
 #home-description-content{
-	width: 70%;
+	width: 60%;
 	text-align: center;
 	margin: 0 auto;
 	padding-top: 50px;
-	font-size: 40px;
+	font-size: 28px;
 	color: black;
 	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #home-posts-desc{
-	padding-top:80px;
+	padding-top:60px;
 	text-align: center;
 	font-size: 50px;
 	color: black;
 	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	margin-bottom: 50px;
+	margin-bottom: 10px;
+}
+
+#user-login-link {
+	float: right;
+	padding: 30px 50px 0 0;
+	color: white;
+	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 #sign-in{
@@ -95,9 +102,8 @@
 
 #user-info {
 	display: inline-block;
-	position: fixed;
 	top: 0;
-	right: 10px;
+	float:right;
 }
 
 .selected {
@@ -121,7 +127,9 @@
 	color: #FBDB0C;
 }
 
-
+#alerts, #user-info {
+	margin-top: 30px;
+}
 
 #new-category-submit {
 	background: gray;
@@ -141,11 +149,10 @@
 }
 
 #add-feed {
-	margin-top: 50px;
+	margin-top: 75px;
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
-
 }
 
 input {
@@ -190,11 +197,13 @@ input {
 }
 
 #tag-feed-submit {
-	background: #3498db;
+	background: gray;
 	border: none;
 	padding: 8px;
 	border-radius: 3px;
-	color: white;
+	color: black;
+	width:19%;
+	box-sizing: border-box;
 }
 
 
@@ -379,7 +388,15 @@ input {
 
 .post-author, .post_content, .post-summary {
 	padding: 10px 20px 10px 20px;
+		font-size: 90%;
 }
+
+.post_content, .post-summary {
+	padding: 10px 20px 10px 20px;
+	font-size: 115%;
+}
+
+.post-author {}
 
 #posts .post h3 {
   margin: 0;
@@ -407,7 +424,7 @@ input {
   background-size: cover;
   width: 100%;
   height: 900px;
-  padding-top: 40px;
+  padding-top: 80px;
   -webkit-box-shadow: 0px 5px 13px 0px rgba(49, 50, 50, 0.82);
   -moz-box-shadow:    0px 5px 13px 0px rgba(49, 50, 50, 0.82);
   box-shadow:         0px 5px 13px 0px rgba(49, 50, 50, 0.82);
@@ -435,10 +452,12 @@ input {
 }
 
 .devise_forms input[type="submit"] {
-  background: #D3D3D3;
+  background: #333332;
   font-size: 16px;
   font-weight: bold;
   border: 1px solid gray;
+  color: white;
+  width: auto;
 }
 
 .devise_forms input {
@@ -448,7 +467,17 @@ input {
   min-width: 250px;
   border-radius: 5px;
   font-size: 16px;
+}
+.devise_container h2 {
+  font-size: 40px;
+}
+.devise_forms {
+  margin-top: 20px;
+}
 
+.devise_forms input {
+  border: none;
+  color: black;
 }
 
 a {
