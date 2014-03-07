@@ -108,8 +108,16 @@
 	margin-bottom: 30px;
 }
 
-#add-category h3 {
+#add-category h3, #feeds-section h4 {
 	color: #FBDB0C;
+}
+
+
+
+#new-category-submit {
+	background: gray;
+	color: black;
+	border: none;
 }
 
 .delete-button, .delete-cat-button {
@@ -258,6 +266,7 @@ input {
   padding: 15px;
   color:white;
 }
+
 
   .kontainer {
     position: fixed;
