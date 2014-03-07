@@ -4,7 +4,8 @@ feature 'Visitor signs up' do
 
 	scenario 'register as a user' do
 		visit root_path
-		click_on 'Create an Account'
+		save_and_open_page
+		click_on 'Sign Up'
 		fill_in 'Email', with: 'jack@aol.com'
 		fill_in 'Password', with: 'password1'
 		fill_in 'Password confirmation', with: 'password1'
