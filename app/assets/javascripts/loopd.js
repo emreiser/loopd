@@ -42,6 +42,7 @@ Loopd.sortByField = function(array, field) {
 Loopd.applyFilter = function(event){
 	$('#feeds-section').find("p").removeClass('selected');
 	$('#feeds-section').find("li").removeClass('selected');
+	$('#tag-feed').attr('class', 'hide');
 
 	if($(event.target).hasClass('feed')){
 		Loopd.renderFilteredPosts(event);
