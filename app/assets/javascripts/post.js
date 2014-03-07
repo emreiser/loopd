@@ -22,7 +22,7 @@ Loopd.Post.prototype.buildPost = function() {
 	}
 	postHTML += '<div class="post-summary"><p>' + this.summary + ' [...]</p></div>';
 	if(!($.isEmptyObject(this.content))) {
-		postHTML += '<div id="post_toggle_' + this.id + '">Click to toggle post</div>';
+		postHTML += '<div id="post_toggle_' + this.id + '" class="post-toggle">Click to toggle post</div>';
 		postHTML += '<div class="post_content" id="post_content_' + this.id + '">' + this.content + '</div>';
 	};
 	return postHTML;
