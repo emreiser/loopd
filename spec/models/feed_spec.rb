@@ -19,6 +19,9 @@ describe Feed do
   describe 'add_feed' do
     before :each do
       @cabosanlupus = Feed.create(name: 'cabo san lupus', url: 'http://cabosanlupus.tumblr.com/rss')
+      response = @cabosanlupus.get_rss_response
+      @cabosanlupus.add_feed(response)
+      @cabosanlupus.update_feed(response)
     end
 
     it 'should return the name of the feed based on rss response title' do

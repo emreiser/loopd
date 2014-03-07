@@ -17,8 +17,8 @@ Loopd.getHomePosts = function(){
 		//Loopd.refreshArrays(data)
 
 		// Loopd.populateSideBar();
-		Loopd.posts = response.posts
-		Loopd.renderAllPosts(Loopd.posts);
+		Loopd.postsHome = response.posts
+		Loopd.renderHomePosts(Loopd.postsHome);
 	})
 
 	.fail(function() {
