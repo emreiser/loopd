@@ -13,23 +13,23 @@ describe Feed do
   	end
 
   	it 'is valid when all required fields are provided' do
-  		expect(Feed.create(name: 'NYT', url: 'http://www.nytimes.com'))
+  		expect(Feed.create(name: 'NYT', url: 'http://www.nytimes.com')).to be_valid
   	end
   end
 
-  describe 'get_rss_response' do
-  end
-
-  describe ".validate_feed" do
-  end
-
   describe 'add_feed' do
+    before :each do
+      @cabosanlupus = Feed.create(name: 'cabo san lupus', url: 'http://cabosanlupus.tumblr.com/rss')
+    end
+    it 'should return the name of the feed based on rss response title' do
+      expect(@cabosanlupus.name).to eq('cabo san lupus')
+    end
   end
 
-  describe 'update_feed' do
+  describe '#update_feed' do
   end
 
-  describe 'add_posts' do
+  describe '#add_posts' do
   end
 
 end
