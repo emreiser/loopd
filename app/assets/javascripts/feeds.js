@@ -79,6 +79,7 @@ Loopd.addNewFeedPosts = function(post_array) {
 
 Loopd.addFeedMessage = function(message){
 	var message = '<div class="message">' + message + '</div>';
+	$('#messages').empty();
 	$('#messages').append(message);
 	$('#messages').animate({ opacity: 100 })
 	$('#messages').delay(2000).animate({ opacity: 0 })

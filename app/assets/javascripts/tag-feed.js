@@ -28,6 +28,7 @@ Loopd.tagFeed = function(event){
 	})
 	.done(function(data) {
 		$cat_name.val('');
+		Loopd.addFeedMessage(data.message);
 		Loopd.feeds = JSON.parse(data.feeds);
 		Loopd.categories = JSON.parse(data.categories);
 
