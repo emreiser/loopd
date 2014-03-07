@@ -102,6 +102,11 @@
 
 .feed, .category {
 	color: white;
+	text-shadow: 1px 1px 1px #000;
+}
+
+.feed:hover, .category:hover{
+	color: whitesmoke;
 }
 
 #add-category {
@@ -166,6 +171,14 @@ input {
 	padding: 5px;
 	border: 1px solid black;
 	border-radius: 3px;
+}
+
+#tag-feed {
+	margin-top: 10px;
+	padding: 10px;
+	background: #333332;;
+	color: #FBDB0C;
+	border-radius: 5px;
 }
 
 #tag-feed input:focus {
@@ -256,6 +269,7 @@ input {
 
 #nav-bar-toggle-button {
   font-family: 'Megrim', cursive;
+  text-shadow: 1px 1px 1px #000;
   font-size: 48px;
   background: #333332;
 	position: fixed;
