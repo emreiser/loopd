@@ -282,7 +282,7 @@
   .kontainer:hover > .d,
   .kontainer:hover > .e,
   .kontainer:hover > .f{
-    width: 165px;
+    width: 180px;
   }
 
   .kontainer:hover > .a{
@@ -304,8 +304,7 @@
 #posts .post {
 	margin-bottom: 40px;
 	padding: 0;
-	background: whitesmoke;
-	border-left: 10px solid #FBDB0C;
+	border: 2px solid #fbdb0c;
 }
 
 .post-author, .post_content, .post-summary {
@@ -325,7 +324,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	color: whitesmoke;
+	color: black;
 }
 
 ul {
