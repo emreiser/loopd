@@ -157,14 +157,7 @@
 	margin-left: 25%
 }
 
-#sidebar-scroll {
-	overflow-y:scroll;
 
-}
-
-#feeds-section {
-	overflow-y:scroll;
-}
 #nav-bar-content {
 	position: fixed;
 	left: -30%;
@@ -179,6 +172,7 @@
 	display: block;
 	overflow: hidden;
 	box-shadow: 2px 0px 10px 1px #ccc;
+	overflow-y:scroll;
 
   -webkit-transition: left 750ms ease-in-out;
   -moz-transition: left 750ms ease-in-out;
