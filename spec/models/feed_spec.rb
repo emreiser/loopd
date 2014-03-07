@@ -16,4 +16,20 @@ describe Feed do
   		expect(Feed.create(name: 'NYT', url: 'http://www.nytimes.com'))
   	end
   end
+
+  describe 'get_rss_response' do
+  end
+
+  describe ".validate_feed" do
+  end
+
+  describe 'add_feed' do
+  end
+
+  describe 'update_feed' do
+  end
+
+  describe 'add_posts' do
+  end
+
 end
