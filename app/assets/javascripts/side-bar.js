@@ -30,12 +30,12 @@ Loopd.renderCategory = function(category){
 };
 
 Loopd.renderAllCategories = function(categories){
-	var i = 0, length = categories.length, availableTags;
-	availableTags = [];
+	var i = 0, length = categories.length;
+	Loopd.availableTags = [];
 
 	for(;i < length;){
 		Loopd.renderCategory(categories[i]);
-		availableTags.push(categories[i].name);
+		Loopd.availableTags.push(categories[i].name);
 		i = i + 1;
 	}
 };
@@ -54,7 +54,7 @@ Loopd.populateSideBar = function(){
 
 	$(function() {
     $( "#tag_name" ).autocomplete({
-      source: availableTags,
+      source: Loopd.availableTags,
       messages: {
       	noResults: '',
       	results: function() {}
