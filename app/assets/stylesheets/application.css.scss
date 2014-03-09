@@ -1,4 +1,8 @@
 @import "bootstrap";
+@import "home.css.scss";
+@import "devise.css.scss";
+@import "posts.css.scss";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,101 +17,107 @@
  *= require_tree .
  */
 
- body {
+body {
  	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
  }
+
+input {
+  margin-bottom: 5px;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0;
+  padding-left: 20px;
+}
+
+#page {
+  padding-left: 25%;
+  background: white;
+}
 
 .container {
 	width: 70%;
 	margin: 0 auto;
 }
 
-#home-top {
-  background: image-url('tranquilsky.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 520px;
-  -webkit-box-shadow: 0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-  -moz-box-shadow:    0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-  box-shadow:         0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-}
-
-#home-title{
-	font-family: 'Megrim', cursive;
-	font-size: 80px;
-}
-#home-content {
-	padding-top:80px;
-	text-align: center;
-	font-size: 50px;
-	color: white;
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-#home-description{
-	background: whitesmoke;
-	width: 100%;
-	height: 180px;
-
-}
-#home-description-content{
-	width: 60%;
-	text-align: center;
-	margin: 0 auto;
-	padding-top: 50px;
-	font-size: 28px;
-	color: black;
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#home-posts-desc{
-	padding-top:60px;
-	text-align: center;
-	font-size: 50px;
-	color: black;
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	margin-bottom: 10px;
-}
-
-#user-login-link {
-	float: right;
-	padding: 30px 50px 0 0;
-	color: white;
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#sign-in{
-	margin-top: 90px;
-	font-size: 30px;
-}
-#login-button{
-	transition: background-color 0.7s ease;
-	margin-top: 10px;
-	min-width: 220px;
-	background-color: rgba(255, 0, 0, 0);
-	border: 2px solid #FFFFFF;
-	bottom: 100px;
-	right: 0;
-	padding: 10px;
-	border-radius: 10px;
-	text-decoration: none;
-	color:white;
-}
-
-#login-button:hover{
-	background-color: rgba(255, 255, 255, 0.3);
-}
-
-#user-info {
-	display: inline-block;
-	top: 0;
-	float:right;
-}
-
 .selected {
 	font-weight: bold;
+}
+
+.display {
+  visibility: visible;
+}
+
+//////////// Alerts ////////////////
+
+#alerts, #user-info {
+  margin-top: 30px;
+}
+
+//////////// Sidebar content ////////////////
+
+#nav-bar-toggle-button {
+  font-family: 'Megrim', cursive;
+  text-shadow: 1px 1px 1px #000;
+  font-size: 48px;
+  background: #333332;
+  position: fixed;
+  left: 35px;
+  top: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  padding: 15px;
+  color:white;
+}
+
+#nav-bar-content {
+  position: fixed;
+  left: -30%;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  margin-bottom: -10px;
+  background: #333332;
+  padding: 80px 50px 0 50px;
+  word-wrap: break-word;
+  display: block;
+  overflow: hidden;
+  box-shadow: 2px 0px 10px 1px #ccc;
+  overflow-y:scroll;
+  color:#b3b3b1;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content.show {
+  left: 0;
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content h3 {
+  margin-top: 80px;
 }
 
 .feed, .category {
@@ -119,16 +129,15 @@
 	color: whitesmoke;
 }
 
+
+//////////// Category form ////////////////
+
 #add-category {
 	margin-bottom: 30px;
 }
 
 #add-category h3, #feeds-section h4 {
 	color: #FBDB0C;
-}
-
-#alerts, #user-info {
-	margin-top: 30px;
 }
 
 #new-category-submit {
@@ -148,9 +157,10 @@
 	display: inline-block;
 }
 
+//////////// Feed form ////////////////
+
 #add-feed {
   text-align: right;
-
 }
 
 #new-feed-form {
@@ -158,12 +168,6 @@
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
-}
-
-input {
-	margin-bottom: 5px;
-	background: white;
-
 }
 
 #add-feed input {
@@ -179,7 +183,12 @@ input {
 	outline: none;
 }
 
-// Tag form input field
+#feed_url {
+  background: white;
+}
+
+//////////// Tag form ////////////////
+
 #tag_name {
 	width: 80%;
 	background: whitesmoke;
@@ -215,9 +224,8 @@ input {
   color: black;
 }
 
+//////////// Autocomplete form ////////////////
 
-
-// Autocomplete menu
 .ui-autocomplete {
   background: whitesmoke;
   border-radius: 0px;
@@ -225,281 +233,8 @@ input {
   border: 1px solid black;
 }
 
-
-// individual autocomplete items
 .ui-menu .ui-menu-item{
 	margin: 5px 0px;
   color: black;
   font-size: 125%;
-}
-
-#page {
-	padding-left: 25%;
-	background: white;
-}
-
-
-#nav-bar-content {
-	position: fixed;
-	left: -30%;
-	top: 0;
-	bottom: 0;
-	width: 30%;
-	height: 100%;
-	margin-bottom: -10px;
-	background: #333332;
-	padding: 80px 50px 0 50px;
-	word-wrap: break-word;
-	display: block;
-	overflow: hidden;
-	box-shadow: 2px 0px 10px 1px #ccc;
-	overflow-y:scroll;
-	color:#b3b3b1;
-
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content.show {
-  left: 0;
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
-#nav-bar-content.show {
-  left: 0;
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
-#nav-bar-toggle-button {
-  font-family: 'Megrim', cursive;
-  text-shadow: 1px 1px 1px #000;
-  font-size: 48px;
-  background: #333332;
-	position: fixed;
-	left: 35px;
-	top: 30px;
-	z-index: 1000;
-  cursor: pointer;
-  padding: 15px;
-  color:white;
-}
-
-  .kontainer {
-    position: fixed;
-    float: left;
-    width: 300px;
-    padding: 35px;
-    border: 0px solid #fbfbfb;
-  }
-
-  .a, .b, .c, .d, .e, .f {
-    position: static;
-    background: #fbdb0c;
-    height: 13px;
-    width: 84px;
-    box-shadow: -3px 4px 0px 0px rgba(0,0,0,0.1);
-
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-
-  .a {
-    border-radius: 15px 0 0 0;
-  }
-
-  .b{
-    background: #fce133;
-    width: 66px;
-  }
-
-  .c {
-    background: #fce659;
-    width: 76px;
-  }
-
-  .d {
-    background: #fdec80;
-    width: 60px;
-  }
-
-  .e {
-    background: #fef2a6;
-    width: 90px;
-  }
-
-  .f {
-    background: #fef8cd;
-    width: 80px;
-    border-radius: 0 0 0 15px;
-  }
-
-  .kontainer:hover > .a,
-  .kontainer:hover > .b,
-  .kontainer:hover > .c,
-  .kontainer:hover > .d,
-  .kontainer:hover > .e,
-  .kontainer:hover > .f{
-    width: 165px;
-  }
-
-  .kontainer:hover > .a{
-    border-radius: 15px 15px 0 0;
-  }
-
-  .kontainer:hover > .f{
-    border-radius: 0 0 15px 15px;
-  }
-
-.display {
-	visibility: visible;
-}
-
-#posts {
-	padding-top: 45px;
-	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-#posts .post {
-	margin-bottom: 40px;
-	padding: 0;
-	background: white;
-	border-left: 10px solid #FBDB0C;
-	-webkit-box-shadow: 0px 5px 12px 0px rgba(50, 50, 50, 0.64);
-	-moz-box-shadow:    0px 5px 12px 0px rgba(50, 50, 50, 0.64);
-	box-shadow:         0px 5px 12px 0px rgba(50, 50, 50, 0.64);
-}
-
-#feed_url {
-	background: white;
-}
-
-.post-author, .post_content, .post-summary, .post-toggle {
-	padding: 10px 20px 10px 20px;
-	font-size: 90%;
-}
-
-.post_content, .post-summary {
-	padding: 10px 20px 10px 20px;
-	font-size: 115%;
-}
-
-.post-author {}
-
-#posts .post h3 {
-  margin: 0;
-  padding: 20px 20px 20px 20px;
-  background: whitesmoke;
-  color: black;
-}
-#posts .post h3 a {
-  color: black;
-}
-#posts .post h3 a:hover {
-  color: gray;
-}
-
-.devise-class a {
-	font-weight: bold;
-	color: white;
-}
-
-.devise-class {
-  background: image-url('tranquilsky.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 900px;
-  padding-top: 80px;
-  -webkit-box-shadow: 0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-  -moz-box-shadow:    0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-  box-shadow:         0px 5px 13px 0px rgba(49, 50, 50, 0.82);
-}
-
-.devise_container {
-  text-align: center;
-  color: white;
-  border-radius: 20px;
-  border: 3px solid white;
-  width: 40%;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-.devise_container h2 {
-  font-size: 40px;
-}
-
-.devise_container label {
-  font-size: 18px;
-}
-.devise_forms {
-  margin-top: 20px;
-}
-
-.devise_forms input[type="submit"] {
-  background: #333332;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  width: auto;
-}
-
-.devise_forms input {
-  border: none;
-  color: black;
-  padding: 10px;
-  min-width: 250px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-.devise_container h2 {
-  font-size: 40px;
-}
-.devise_forms {
-  margin-top: 20px;
-}
-
-.devise_forms input {
-  border: none;
-  color: black;
-}
-
-a {
-	text-decoration: none;
-	color: gray;
-}
-
-a:hover {
-	text-decoration: none;
-	color: black;
-}
-
-ul {
-  list-style-type: none;
-  cursor: pointer;
-  margin: 0;
-  padding-left: 20px;
 }
