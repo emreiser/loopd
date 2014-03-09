@@ -3,7 +3,6 @@ $(document).ready(function(){
 
 });
 
-
 var Loopd = Loopd || {};
 
 Loopd.showTagForm = function(feed_id){
@@ -42,5 +41,3 @@ Loopd.tagFeed = function(event){
 	});
 
 };
-
-

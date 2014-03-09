@@ -17,9 +17,9 @@ Loopd.addNewCategory = function(event){
 		data: {category: { name: $cat_name.val()}},
 	})
 	.done(function(data) {
-		Loopd.addCategoryMessage(data.message)
+		Loopd.addCategoryMessage(data.message);
 		$cat_name.val('');
-		if(data.category){ Loopd.categories.push(data.category) };
+		if(data.category){ Loopd.categories.push(data.category) }
 		Loopd.populateSideBar();
 
 	})
@@ -44,7 +44,7 @@ Loopd.filterByCategory = function(category){
 
 	if(filtered_posts.length > 0){
 		return filtered_posts.reduce(function(a, b) {
-    	return a.concat(b);
+			return a.concat(b);
 		});
 	} else {
 		return [];
@@ -74,7 +74,7 @@ Loopd.deleteCategory = function(){
 	var cat_id = event.target.parentElement.attributes['data-cat-id'].value;
 
 	var confirmation = confirm("Are you sure you want to delete this category?");
-	if (confirmation == true) {
+	if (confirmation === true) {
 
 		$.ajax({
 			url: '/categories/' + cat_id,
@@ -83,7 +83,7 @@ Loopd.deleteCategory = function(){
 			data: {id: cat_id},
 		})
 		.done(function(data) {
-			Loopd.refreshArrays(data)
+			Loopd.refreshArrays(data);
 			Loopd.populateSideBar();
 			Loopd.renderAllPosts(Loopd.posts);
 		})
@@ -98,9 +98,8 @@ Loopd.deleteCategory = function(){
 }
 
 Loopd.addCategoryMessage = function(message) {
-	var message = '<div class="message">' + message + '</div>';
 	$('#category-message').empty();
 	$('#category-message').append(message);
-	$('#category-message').animate({ opacity: 100 })
-	$('#category-message').delay(2000).animate({ opacity: 0 })
+	$('#category-message').animate({ opacity: 100 });
+	$('#category-message').delay(2000).animate({ opacity: 0 });
 }

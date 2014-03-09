@@ -13,9 +13,9 @@ Loopd.Category.prototype = {
 		cat_ul = $('<ul />', {id: 'cat_' + this.id, class: "collapse"});
 		del_button = $('<div />', {class: 'hide delete-cat-button glyphicon glyphicon-remove-sign inline'});
 
-	 cat_li.append(name);
-	 cat_li.append(del_button);
-	 cat_li.append(cat_ul);
-	 return cat_li;
+		cat_li.append(name);
+		cat_li.append(del_button);
+		cat_li.append(cat_ul);
+		return cat_li;
 	}
 };

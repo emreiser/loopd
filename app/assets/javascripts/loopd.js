@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	Loopd.getData();
-	$('#alerts').delay(3000).animate({opacity: 0})
+	$('#alerts').delay(3000).animate({opacity: 0});
 });
 
 var Loopd = Loopd || {};
@@ -14,7 +14,7 @@ Loopd.getData = function(){
 
 	.done(function(data) {
 		console.log("success");
-		Loopd.refreshArrays(data)
+		Loopd.refreshArrays(data);
 
 		Loopd.populateSideBar();
 		Loopd.renderAllPosts(Loopd.posts);
@@ -22,7 +22,7 @@ Loopd.getData = function(){
 
 	.fail(function() {
 		console.log("error");
-	})
+	});
 
 };
 
@@ -63,4 +63,3 @@ Loopd.refreshArrays = function(data){
 Loopd.toggleDelete = function(event){
 	$(event.currentTarget).children('.delete-button, .delete-cat-button').toggleClass('display hide');
 };
-

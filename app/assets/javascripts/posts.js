@@ -3,8 +3,8 @@ var Loopd = Loopd || {};
 Loopd.renderAllPosts = function(posts){
   $("#posts").empty();
   if(posts.length > 0 ){
-    posts.sort(function(a,b) { return (new Date(b.pub_date) - new Date(a.pub_date)) } );
-  };
+    posts.sort(function(a,b) { return (new Date(b.pub_date) - new Date(a.pub_date)); } );
+  }
 
   $.each(posts, function(i, post) {
     var new_post = new Loopd.Post(post);
@@ -13,9 +13,9 @@ Loopd.renderAllPosts = function(posts){
     // If the post has content, allow user to toggle show
     if ($('#post_content_' + new_post.id).length > 0) {
       $('#post_toggle_' + new_post.id).click(function() {
-        $('#post_content_' + new_post.id).toggle()
+        $('#post_content_' + new_post.id).toggle();
       });
-      $('#post_content_' + new_post.id).hide()
+      $('#post_content_' + new_post.id).hide();
     }
   });
 };
@@ -30,5 +30,5 @@ Loopd.renderFilteredPosts = function(event){
   } else {
     Loopd.renderAllPosts(Loopd.filterByFeed(Loopd.posts, id));
     Loopd.showTagForm(id);
-  };
+  }
 };

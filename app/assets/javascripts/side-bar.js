@@ -21,23 +21,23 @@ Loopd.renderAllFeeds = function(feeds){
 	for(;i < length;){
 		Loopd.renderFeed(feeds[i]);
 		i = i + 1;
-	};
+	}
 };
 
 Loopd.renderCategory = function(category){
-	var category = new Loopd.Category(category);
-	$('#all-categories').append(category.renderMe());
+	var cat = new Loopd.Category(category);
+	$('#all-categories').append(cat.renderMe());
 };
 
 Loopd.renderAllCategories = function(categories){
-	var i = 0, length = categories.length;
+	var i = 0, length = categories.length, availableTags;
 	availableTags = [];
 
 	for(;i < length;){
 		Loopd.renderCategory(categories[i]);
-		availableTags.push(categories[i].name)
+		availableTags.push(categories[i].name);
 		i = i + 1;
-	};
+	}
 };
 
 Loopd.populateSideBar = function(){
@@ -56,9 +56,9 @@ Loopd.populateSideBar = function(){
     $( "#tag_name" ).autocomplete({
       source: availableTags,
       messages: {
-              noResults: '',
-              results: function() {}
-          }
+      	noResults: '',
+      	results: function() {}
+      }
     });
 	});
 };

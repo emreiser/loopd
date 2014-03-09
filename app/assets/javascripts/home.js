@@ -9,16 +9,12 @@ Loopd.getHomePosts = function(){
 
 	.done(function(data) {
 		console.log("success");
-		response = data;
-		//Loopd.refreshArrays(data)
-
-		// Loopd.populateSideBar();
-		Loopd.posts = response.posts
+		Loopd.posts = data.posts;
 		Loopd.renderAllPosts(Loopd.posts);
 	})
 
 	.fail(function() {
 		console.log("error");
-	})
+	});
 
 };
