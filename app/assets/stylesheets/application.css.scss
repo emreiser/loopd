@@ -13,7 +13,7 @@
  *= require_tree .
  */
 
- body {
+body {
  	font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
  }
 
@@ -39,6 +39,11 @@ ul {
   padding-left: 20px;
 }
 
+#page {
+  padding-left: 25%;
+  background: white;
+}
+
 .container {
 	width: 70%;
 	margin: 0 auto;
@@ -46,6 +51,69 @@ ul {
 
 .selected {
 	font-weight: bold;
+}
+
+.display {
+  visibility: visible;
+}
+
+//////////// Alerts ////////////////
+
+#alerts, #user-info {
+  margin-top: 30px;
+}
+
+//////////// Sidebar content ////////////////
+
+#nav-bar-toggle-button {
+  font-family: 'Megrim', cursive;
+  text-shadow: 1px 1px 1px #000;
+  font-size: 48px;
+  background: #333332;
+  position: fixed;
+  left: 35px;
+  top: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  padding: 15px;
+  color:white;
+}
+
+#nav-bar-content {
+  position: fixed;
+  left: -30%;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  margin-bottom: -10px;
+  background: #333332;
+  padding: 80px 50px 0 50px;
+  word-wrap: break-word;
+  display: block;
+  overflow: hidden;
+  box-shadow: 2px 0px 10px 1px #ccc;
+  overflow-y:scroll;
+  color:#b3b3b1;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content.show {
+  left: 0;
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-content h3 {
+  margin-top: 80px;
 }
 
 .feed, .category {
@@ -57,16 +125,15 @@ ul {
 	color: whitesmoke;
 }
 
+
+//////////// Category form ////////////////
+
 #add-category {
 	margin-bottom: 30px;
 }
 
 #add-category h3, #feeds-section h4 {
 	color: #FBDB0C;
-}
-
-#alerts, #user-info {
-	margin-top: 30px;
 }
 
 #new-category-submit {
@@ -86,9 +153,10 @@ ul {
 	display: inline-block;
 }
 
+//////////// Feed form ////////////////
+
 #add-feed {
   text-align: right;
-
 }
 
 #new-feed-form {
@@ -111,7 +179,12 @@ ul {
 	outline: none;
 }
 
-// Tag form input field
+#feed_url {
+  background: white;
+}
+
+//////////// Tag form ////////////////
+
 #tag_name {
 	width: 80%;
 	background: whitesmoke;
@@ -147,9 +220,8 @@ ul {
   color: black;
 }
 
+//////////// Autocomplete form ////////////////
 
-
-// Autocomplete menu
 .ui-autocomplete {
   background: whitesmoke;
   border-radius: 0px;
@@ -157,90 +229,8 @@ ul {
   border: 1px solid black;
 }
 
-
-// individual autocomplete items
 .ui-menu .ui-menu-item{
 	margin: 5px 0px;
   color: black;
   font-size: 125%;
 }
-
-#page {
-	padding-left: 25%;
-	background: white;
-}
-
-
-#nav-bar-content {
-	position: fixed;
-	left: -30%;
-	top: 0;
-	bottom: 0;
-	width: 30%;
-	height: 100%;
-	margin-bottom: -10px;
-	background: #333332;
-	padding: 80px 50px 0 50px;
-	word-wrap: break-word;
-	display: block;
-	overflow: hidden;
-	box-shadow: 2px 0px 10px 1px #ccc;
-	overflow-y:scroll;
-	color:#b3b3b1;
-
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content.show {
-  left: 0;
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
-#nav-bar-content.show {
-  left: 0;
-  -webkit-transition: left 750ms ease-in-out;
-  -moz-transition: left 750ms ease-in-out;
-  -ms-transition: left 750ms ease-in-out;
-  -o-transition: left 750ms ease-in-out;
-  transition: left 750ms ease-in-out;
-}
-
-#nav-bar-content h3 {
-	margin-top: 80px;
-}
-
-#nav-bar-toggle-button {
-  font-family: 'Megrim', cursive;
-  text-shadow: 1px 1px 1px #000;
-  font-size: 48px;
-  background: #333332;
-	position: fixed;
-	left: 35px;
-	top: 30px;
-	z-index: 1000;
-  cursor: pointer;
-  padding: 15px;
-  color:white;
-}
-
-.display {
-	visibility: visible;
-}
-
-#feed_url {
-	background: white;
-}
-
-

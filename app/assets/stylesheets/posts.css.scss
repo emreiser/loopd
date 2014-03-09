@@ -1,0 +1,44 @@
+
+#posts {
+  padding-top: 45px;
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#posts .post {
+  margin-bottom: 40px;
+  padding: 0;
+  background: white;
+  border-left: 10px solid #FBDB0C;
+  -webkit-box-shadow: 0px 5px 12px 0px rgba(50, 50, 50, 0.64);
+  -moz-box-shadow:    0px 5px 12px 0px rgba(50, 50, 50, 0.64);
+  box-shadow:         0px 5px 12px 0px rgba(50, 50, 50, 0.64);
+}
+
+.post-author, .post_content, .post-summary, .post-toggle {
+  padding: 10px 20px 10px 20px;
+  font-size: 90%;
+}
+
+.post_content, .post-summary {
+  padding: 10px 20px 10px 20px;
+  font-size: 115%;
+}
+
+.post-author {
+
+}
+
+#posts .post h3 {
+  margin: 0;
+  padding: 20px 20px 20px 20px;
+  background: whitesmoke;
+  color: black;
+}
+
+#posts .post h3 a {
+  color: black;
+}
+
+#posts .post h3 a:hover {
+  color: gray;
+}
