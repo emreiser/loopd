@@ -61,10 +61,14 @@ ul {
 
 //////////// Alerts ////////////////
 
-#alerts, #user-info {
+#user-info {
   margin-top: 30px;
+  z-index: 10;
 }
-
+#alerts {
+  margin-top: 60px;
+  height:30px
+}
 //////////// Sidebar content ////////////////
 
 #nav-bar-toggle-button {
@@ -162,7 +166,7 @@ ul {
 }
 
 #new-feed-form {
-	margin-top: 80px;
+	margin-top: 40px;
 	width: 100%;
 	border-bottom: 1px solid black;
 	text-align: right;
