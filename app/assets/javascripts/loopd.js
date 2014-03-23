@@ -5,18 +5,19 @@ $(document).ready(function(){
 
 var Loopd = Loopd || {};
 
+// Gets all of the data on page load
 Loopd.getData = function(){
 	$.ajax({
 		url: '/feeds',
 		type: 'GET',
 		dataType: 'json'
 	})
-
 	.done(function(data) {
 		console.log("success");
 		Loopd.refreshArrays(data);
-
+		// populate the sidebar w/ feeds, categories
 		Loopd.populateSideBar();
+		// and let's render all of the user's posts
 		Loopd.renderAllPosts(Loopd.posts);
 	})
 
@@ -40,11 +41,13 @@ Loopd.sortByField = function(array, field) {
   );
 };
 
+// Handles sorting for categories and feeds
 Loopd.applyFilter = function(event){
 	$('#feeds-section').find("p").removeClass('selected');
 	$('#feeds-section').find("li").removeClass('selected');
 	$('#tag-feed').attr('class', 'hide');
 
+	// Filter based on class of clicked object
 	if($(event.target).hasClass('feed')){
 		Loopd.renderFilteredPosts(event);
 	} else if($(event.target).hasClass('category')){
@@ -54,6 +57,7 @@ Loopd.applyFilter = function(event){
 	}
 };
 
+// Resets feeds, categories, and posts after a deletion
 Loopd.refreshArrays = function(data){
 	Loopd.feeds = JSON.parse(data.feeds);
 	Loopd.categories = JSON.parse(data.categories);

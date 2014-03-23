@@ -14,6 +14,7 @@ Loopd.hideTagForm = function(){
 	$('#tag-feed').attr('class', 'hide');
 };
 
+// Adds a feed to a given category
 Loopd.tagFeed = function(event){
 	event.preventDefault();
 	var $cat_name = $('#tag-feed').find('#tag_name'), feed_id;
@@ -30,7 +31,7 @@ Loopd.tagFeed = function(event){
 		Loopd.addFeedMessage(data.message);
 		Loopd.feeds = JSON.parse(data.feeds);
 		Loopd.categories = JSON.parse(data.categories);
-
+		// populates the sidebar with new relationship
 		Loopd.populateSideBar();
 	})
 	.fail(function() {

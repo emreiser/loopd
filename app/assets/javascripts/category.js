@@ -6,6 +6,7 @@ Loopd.Category = function(category){
 };
 
 Loopd.Category.prototype = {
+	// Creates HTML for individual category
 	renderMe: function(){
 		var cat_li, cat_ul, name, del_button;
 		cat_li = $('<li />', {class: 'category', 'data-cat-id': this.id});

@@ -20,6 +20,7 @@ class TagsController < ApplicationController
 
 	end
 
+	# Removes a given feed from a given category. Returns fresh data
 	def destroy_tag
 		user = current_user
     @category = Category.find(params[:cat_id])

@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 var Loopd = Loopd || {};
 
+// Adds a new category based on form entry in sidebar
 Loopd.addNewCategory = function(event){
 	event.preventDefault();
 	$('#category-message').empty();
@@ -17,9 +18,12 @@ Loopd.addNewCategory = function(event){
 		data: {category: { name: $cat_name.val()}},
 	})
 	.done(function(data) {
+		// Let's add the response message
 		Loopd.addCategoryMessage(data.message);
 		$cat_name.val('');
+		// If we get a new category in our response, push that to the category array
 		if(data.category){ Loopd.categories.push(data.category) }
+		// Repopulate the sidebar with new category included
 		Loopd.populateSideBar();
 
 	})
@@ -32,11 +36,13 @@ Loopd.addNewCategory = function(event){
 
 };
 
+// Filters posts by category
 Loopd.filterByCategory = function(category){
 	var i = 0,
 			feeds = category.feeds,
 			length = feeds.length,
 			filtered_posts = [];
+	// For each feed in a category, add posts to a new 'filtered posts' array
 	for(;i < length;){
 		filtered_posts.push(Loopd.filterByFeed(Loopd.posts, feeds[i].id));
 		i = i + 1;
@@ -51,6 +57,7 @@ Loopd.filterByCategory = function(category){
 	}
 };
 
+// Returns the categort for a given id
 Loopd.getCategoryById = function(id){
 	var i = 0, length = Loopd.categories.length, category;
 
@@ -63,6 +70,7 @@ Loopd.getCategoryById = function(id){
 	return category;
 };
 
+// Renders posts for a given category
 Loopd.renderFilteredCategory = function(event){
   var cat_id = event.target.attributes['data-cat-id'].value;
   $(event.target).addClass('selected');
@@ -70,6 +78,7 @@ Loopd.renderFilteredCategory = function(event){
 
 };
 
+// Deletes a category
 Loopd.deleteCategory = function(){
 	var cat_id = event.target.parentElement.attributes['data-cat-id'].value;
 

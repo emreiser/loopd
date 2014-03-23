@@ -57,6 +57,7 @@ class FeedsController < ApplicationController
 
   end
 
+  # Deletes a feed, the feed's posts, and returns user's feeds, posts, categories
   def destroy
     user = current_user
     @feed = Feed.find(params[:id])

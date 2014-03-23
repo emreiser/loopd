@@ -11,6 +11,7 @@ Loopd.Post = function(post) {
 	this.content = post.content || [];
 };
 
+// Creates the HTML for a single post
 Loopd.Post.prototype.buildPost = function() {
 	var postHTML = '<div class="post" id="post_feed_' + this.feed_id + '">';
 	postHTML += "<h3><a href='" + this.url + "' target='_blank'>" + this.title + "</a></h3>";
@@ -28,6 +29,7 @@ Loopd.Post.prototype.buildPost = function() {
 	return postHTML;
 };
 
+// Converts the post time to readable format
 Loopd.convertPostTime = function(time) {
 	var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 	var dateObj = new Date(time);
