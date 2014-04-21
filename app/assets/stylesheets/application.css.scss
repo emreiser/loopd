@@ -151,8 +151,11 @@ ul {
 .delete-button, .delete-cat-button {
 	margin: 0 5px 0 15px;
 	display: inline-block;
-	visibility: hidden;
 	margin-bottom: -2px;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 .inline {
