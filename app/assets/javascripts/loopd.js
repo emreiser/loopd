@@ -2,6 +2,7 @@ $(document).ready(function(){
 	Loopd.getData();
 	$('#alerts').delay(3000).animate({opacity: 0});
   $('#all-categories #all-feeds').on("mouseover", Loopd.toggleDelete);
+  $('.feed').on("click", Loopd.showTagForm);
 });
 
 var Loopd = Loopd || {};
@@ -66,6 +67,5 @@ Loopd.refreshArrays = function(data){
 };
 
 Loopd.toggleDelete = function(event){
-  console.log(event.currentTarget);
 	$(event.currentTarget).children('.delete-button, .delete-cat-button').toggleClass('hide');
 };

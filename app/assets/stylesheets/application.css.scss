@@ -85,6 +85,32 @@ ul {
   color:white;
 }
 
+#nav-bar-header {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: auto;
+  padding: 120px 30px 0 50px;
+  background: #333332;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
+#nav-bar-header.show {
+  left: 0;
+
+  -webkit-transition: left 750ms ease-in-out;
+  -moz-transition: left 750ms ease-in-out;
+  -ms-transition: left 750ms ease-in-out;
+  -o-transition: left 750ms ease-in-out;
+  transition: left 750ms ease-in-out;
+}
+
 #nav-bar-content {
   position: fixed;
   left: -30%;
@@ -94,13 +120,13 @@ ul {
   height: 100%;
   margin-bottom: -10px;
   background: #333332;
-  padding: 80px 50px 0 50px;
+  padding: 0 50px;
   word-wrap: break-word;
   display: block;
   overflow: hidden;
   box-shadow: 2px 0px 10px 1px #ccc;
   overflow-y:scroll;
-  color:#b3b3b1;
+  color: #b3b3b1;
 
   -webkit-transition: left 750ms ease-in-out;
   -moz-transition: left 750ms ease-in-out;
@@ -111,6 +137,7 @@ ul {
 
 #nav-bar-content.show {
   left: 0;
+
   -webkit-transition: left 750ms ease-in-out;
   -moz-transition: left 750ms ease-in-out;
   -ms-transition: left 750ms ease-in-out;
@@ -118,8 +145,8 @@ ul {
   transition: left 750ms ease-in-out;
 }
 
-#nav-bar-content h3 {
-  margin-top: 80px;
+#sidebar-scroll {
+  margin-top: 300px;
 }
 
 .feed, .category {
@@ -135,7 +162,7 @@ ul {
 //////////// Category form ////////////////
 
 #add-category {
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 #add-category h3, #feeds-section h4 {
@@ -242,4 +269,40 @@ ul {
 	margin: 5px 0px;
   color: black;
   font-size: 125%;
+}
+
+@media (max-width: 760px) {
+
+  #nav-bar-toggle-button {
+    left: 0;
+    right: 0;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #nav-bar-content, #nav-bar-header {
+    width: 100%;
+    left: -100%;
+  }
+
+  #page {
+    margin-top: 120px;
+  }
+
+  #page {
+    padding-left: 0;
+  }
+
+  #new-feed-form {
+    margin-top: 0;
+  }
+
+  .post h3 {
+    font-size: 18px;
+  }
+
+  #home-title h2 {
+    font-size: 48px;
+  }
+
 }
