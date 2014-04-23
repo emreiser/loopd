@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	Loopd.getData();
 	$('#alerts').delay(3000).animate({opacity: 0});
 });
 
