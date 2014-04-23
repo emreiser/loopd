@@ -6,7 +6,7 @@ $(document).ready(function(){
 var Loopd = Loopd || {};
 
 Loopd.showTagForm = function(feed_id){
-	$('#tag-feed').addClass('show');
+	$('#tag-feed').toggleClass('hide');
 	$('#tag-feed').attr('data-feed-id', feed_id);
 };
 

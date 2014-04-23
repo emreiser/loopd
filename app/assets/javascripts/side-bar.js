@@ -7,6 +7,7 @@ var Loopd = Loopd || {};
 // Toggles the sidebar
 Loopd.toggleSideBar = function(){
 	$('#nav-bar-content').toggleClass('show');
+	$('#nav-bar-header').toggleClass('show');
 	$('#page').toggleClass('side-bar-open');
 };
 
