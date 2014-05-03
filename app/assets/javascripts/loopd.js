@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$('#alerts').delay(3000).animate({opacity: 0});
   $('#all-categories #all-feeds').on("mouseover", Loopd.toggleDelete);
   $('.feed').on("click", Loopd.showTagForm);
+  $('#refresh-feeds').on("click", Loopd.refreshData);
 });
 
 var Loopd = Loopd || {};
@@ -68,3 +69,21 @@ Loopd.refreshArrays = function(data){
 Loopd.toggleDelete = function(event){
 	$(event.currentTarget).children('.delete-button, .delete-cat-button').toggleClass('hide');
 };
+
+Loopd.refreshData = function() {
+	event.preventDefault();
+	$.ajax({
+			url: '/feeds',
+			type: 'GET',
+			dataType: 'json'
+		})
+		.done(function(data) {
+			console.log("refreshed");
+			Loopd.refreshArrays(data);
+			// and let's render all of the user's posts
+			Loopd.renderAllPosts(Loopd.posts);
+		})
+		.fail(function() {
+			console.log("error");
+		});
+}
